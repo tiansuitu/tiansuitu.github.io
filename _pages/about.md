@@ -1,5 +1,30 @@
 ---
 permalink: /
+title: "Tiansui (Sean) Tu"
+author_profile: true
+redirect_from: 
+  - /about/
+  - /about.html
+---
+
+I am Tiansui (Sean) Tu, a PhD student in Statistics at The Chinese University of Hong Kong (CUHK).
+
+I am gratefully supported by the [Hong Kong PhD Fellowship Scheme](https://cerg1.ugc.edu.hk/hkpfs/index.html) and the CUHK Vice-Chancellor's PhD Scholarship Scheme.
+
+A data-driven personal website
+======
+
+This website serves as a collection of my academic work, notes, research projects, and other materials. The site is built using the Academic Pages template and hosted on GitHub Pages.
+
+Getting started
+------
+
+More content will be added gradually, including research interests, publications, academic notes, and other resources.
+
+
+
+<!-- ---
+permalink: /
 title: "Academic Pages is a ready-to-fork GitHub Pages template for academic personal websites"
 author_profile: true
 redirect_from: 
@@ -53,4 +78,4 @@ Example: editing a Markdown file for a talk
 
 For more info
 ------
-More info about configuring Academic Pages can be found in [the guide](https://academicpages.github.io/markdown/), the [growing wiki](https://github.com/academicpages/academicpages.github.io/wiki), and you can always [ask a question on GitHub](https://github.com/academicpages/academicpages.github.io/discussions). The [guides for the Minimal Mistakes theme](https://mmistakes.github.io/minimal-mistakes/docs/configuration/) (which this theme was forked from) might also be helpful.
+More info about configuring Academic Pages can be found in [the guide](https://academicpages.github.io/markdown/), the [growing wiki](https://github.com/academicpages/academicpages.github.io/wiki), and you can always [ask a question on GitHub](https://github.com/academicpages/academicpages.github.io/discussions). The [guides for the Minimal Mistakes theme](https://mmistakes.github.io/minimal-mistakes/docs/configuration/) (which this theme was forked from) might also be helpful. -->
