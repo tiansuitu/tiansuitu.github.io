@@ -7,9 +7,9 @@ redirect_from:
   - /about.html
 ---
 
-I am Tiansui (Sean) Tu, a PhD student in Statistics at The Chinese University of Hong Kong (CUHK).
+I am a PhD student in Statistics at The Chinese University of Hong Kong (CUHK), under the supervision of [Professor Tony Sit](https://www.sta.cuhk.edu.hk/peoples/tonysit/). I am currently exploring how causal inference can be applied to survival data.
 
-I am gratefully supported by the [Hong Kong PhD Fellowship Scheme](https://cerg1.ugc.edu.hk/hkpfs/index.html) and the CUHK Vice-Chancellor's PhD Scholarship Scheme.
+I am gratefully supported by the [Hong Kong PhD Fellowship Scheme](https://cerg1.ugc.edu.hk/hkpfs/index.html) and the [**CUHK Vice-Chancellor's PhD Scholarship Scheme**](https://www.gs.cuhk.edu.hk/admissions/scholarships-fees/VCPHD).
 
 A data-driven personal website
 ======
