@@ -1,0 +1,30 @@
+---
+layout: archive
+title: "Durrett Waffling"
+permalink: /durrett-waffling/
+author_profile: true
+---
+
+An informal, dated diary of my thoughts, questions, and working notes while reading Durrett.
+
+{% include base_path %}
+{% assign durrett_posts = site.tags["durrett-waffling"] %}
+
+{% if durrett_posts and durrett_posts.size > 0 %}
+  {% for post in durrett_posts %}
+    {% include archive-single.html %}
+  {% endfor %}
+{% else %}
+*Notes are on the way.*
+{% endif %}
+
+{% comment %}
+To add an entry here, create a dated file in _posts and include this front matter:
+
+---
+title: "Your note title"
+date: YYYY-MM-DD
+tags:
+  - durrett-waffling
+---
+{% endcomment %}
