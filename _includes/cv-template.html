@@ -52,9 +52,11 @@
     {% if cv.basics.profiles.size > 0 %}
     <div class="cv-profiles">
       {% for profile in cv.basics.profiles %}
+      {% unless profile.network == "Google Scholar" %}
       <a href="{{ profile.url }}" target="_blank" class="cv-profile-link">
         <i class="fab fa-{{ profile.network | downcase }}"></i> {{ profile.network }}
       </a>
+      {% endunless %}
       {% endfor %}
     </div>
     {% endif %}

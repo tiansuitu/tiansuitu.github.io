@@ -11,6 +11,7 @@ locale                   : "en-US"
 site_theme               : "default" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
 title                    : "Tiansui Tu"
 name                     : &name "Tiansui Tu"
+title_separator          : "|"
 description              : &description "Tiansui Tu's academic homepage"
 url                      : https://tiansuitu.github.io
 repository               : "tiansuitu/tiansuitu.github.io"
@@ -32,7 +33,7 @@ author:
   # Academic websites
   academia         : # URL
   arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
+  # googlescholar  : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ" # Muted until a profile is available.
   inspire-hep      : # URL
   impactstory      : # URL
   # orcid          : "https://orcid.org/yourorcidurl"

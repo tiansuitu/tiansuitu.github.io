@@ -1,6 +1,7 @@
 ---
 permalink: /
 title: "Tiansui Tu"
+seo_title: "Tiansui Tu (Sean)"
 author_profile: true
 redirect_from: 
   - /about/
