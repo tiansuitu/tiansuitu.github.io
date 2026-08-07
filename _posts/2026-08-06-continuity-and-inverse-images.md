@@ -1,7 +1,11 @@
 ---
+layout: durrett
 title: "Some kind of Continuity vs. Openness/Closedness of Inverse Images of a Function"
 date: 2026-08-06
 permalink: /durrett-waffling/continuity-and-inverse-images/
+read_time: false
+share: false
+related: false
 tags:
   - durrett-waffling
 excerpt: "Informal notes on lower semicontinuity, motivated by Exercise 1.3.5."
