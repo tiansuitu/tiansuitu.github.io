@@ -2,7 +2,7 @@
 permalink: /
 title: "Tiansui Tu"
 seo_title: "Tiansui Tu (Sean)"
-author_profile: true
+author_profile: false
 redirect_from: 
   - /about/
   - /about.html
@@ -21,3 +21,5 @@ Getting started
 ------ -->
 
 More content will be added gradually, including research interests, publications, academic notes, and other resources.
+
+You can also find me on [GitHub](https://github.com/tiansuitu).
