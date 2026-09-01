@@ -11,311 +11,285 @@ tags:
 excerpt: "Working notes filling in the finite-subadditivity, compactness, and endpoint details in Durrett's proof of Theorem 1.1.4."
 ---
 
-Lemma 1.1.10 is more about **finite** (sub)additivity than about countable (sub)additivity. Lemma 1.1.10(b) is essentially Theorem 1.1.1(i)--(ii) repeated for $\bar\mu$ on $\overline{\mathcal S}$, but only for a finite cover: first, $A\subseteq B$ gives monotonicity $\bar\mu(A)\leq \bar\mu(B)$; then disjointifying a finite cover gives
+Lemma 1.1.10 is more above FINITE (sub)additivity rather than about countable (sub)additivity. Lemma 1.1.10(b) is essentially Theorem 1.1.1(i)--(ii) repeated for $\bar\mu$ on $\overline{\mathcal S}$: first, $A\subseteq B$ gives monotonicity $\bar\mu(A)\le \bar\mu(B)$; then disjointifying a finite cover gives $\bar\mu(A)\le \sum_{i=1}^n \bar\mu(B_i)$. Thus it is the usual $\text{additivity}\Rightarrow\text{monotonicity}\Rightarrow\text{finite subadditivity}$ argument.
 
-$$
-\bar\mu(A)\leq \sum_{i=1}^n \bar\mu(B_i).
-$$
+Later on, for Theorem 1.1.9 verification of conditions (i) and (ii), only Lemma 1.1.10(b) is used. Lemma 1.1.10(a) is just used to prove (b).
 
-Thus it is the usual
+For proof of Theorem 1.1.4 on page 5,
 
-$$
-\text{finite additivity}
-\Longrightarrow \text{monotonicity}
-\Longrightarrow \text{finite subadditivity}
-$$
+- **Compactness / finite subcover.**
+  Let $(X,\mathcal T)$ be a topological space and let $K\subseteq X$ be compact. If
+  $\{O_i\}_{i\in I}\subseteq\mathcal T$ is an open cover of $K$, i.e.
+  $K\subseteq\bigcup_{i\in I}O_i$, where $I$ may be arbitrary, then there exists
+  a finite subset $J=\{i_1,\ldots,i_m\}\subseteq I$ such that
+  $K\subseteq\bigcup_{i\in J}O_i$.
 
-argument.
+  In Durrett's proof, $K=[a+\delta,b]$, which is compact in $\mathbb R$, and the
+  intervals $(a_i,b_i+\eta_i)$ form an open cover of $K$.
 
-Later, when verifying conditions (i) and (ii) of Theorem 1.1.9, only Lemma 1.1.10(b) is used directly in the compactness argument. Lemma 1.1.10(a) is used to prove (b).
+- **Right continuity of a nondecreasing function.**
+  If $F$ is right continuous at $x_0$, then for every $\varepsilon>0$ there exists
+  $\gamma_\varepsilon>0$ such that
+  $0<x-x_0<\gamma_\varepsilon$ implies
+  $|F(x)-F(x_0)|<\varepsilon$.
+  Since $F$ is nondecreasing, for $x>x_0$ we have
+  $F(x)-F(x_0)\geq 0$, so
+  $0\leq F(x)-F(x_0)<\varepsilon$.
+  Hence, choosing any $\delta_\varepsilon\in(0,\gamma_\varepsilon)$, for example
+  $\delta_\varepsilon=\gamma_\varepsilon/2$, gives
+  $$F(x_0+\delta_\varepsilon)<F(x_0)+\varepsilon$$
 
-## Two small facts used in the proof
+Durrett defines the semialgebra as $\mathcal S_1=\{\varnothing\}\cup\{(a,b]:-\infty\le a<b\le\infty\}$. Hence $\varnothing$ is included separately, since the interval notation only allows $a<b$. For Theorem 1.1.4, the set function should therefore be understood as $\mu(\varnothing):=0$ and $\mu((a,b]):=F(b)-F(a)$ for $a<b$. Thus the hypothesis $\mu(\varnothing)=0$ in Theorem 1.1.9 is satisfied by definition.
 
-- **Compactness / finite subcover.** Let $(X,\mathcal T)$ be a topological space and let $K\subseteq X$ be compact. If $\{O_i\}_{i\in I}\subseteq\mathcal T$ is an open cover of $K$, i.e.
 
-  $$
-  K\subseteq\bigcup_{i\in I}O_i,
-  $$
+<span style="color: red;">Why in Theorem 1.1.9 only require countable SUBadditivity, no need countable $+\infty$-wise additivity?</span>
 
-  where $I$ may be arbitrary, then there is a finite subset $J=\{i_1,\ldots,i_m\}\subseteq I$ such that
-
-  $$
-  K\subseteq\bigcup_{i\in J}O_i.
-  $$
-
-  In Durrett's proof, $K=[a+\delta,b]$, which is compact in $\mathbb R$, and the intervals $(a_i,b_i+\eta_i)$ form an open cover of $K$.
-
-- **Right continuity of a nondecreasing function.** If $F$ is right-continuous at $x_0$, then for every $\varepsilon>0$ there is a $\gamma_\varepsilon>0$ such that
-
-  $$
-  0<x-x_0<\gamma_\varepsilon
-  \quad\Longrightarrow\quad
-  |F(x)-F(x_0)|<\varepsilon.
-  $$
-
-  Since $F$ is nondecreasing, $F(x)-F(x_0)\geq0$ when $x>x_0$. Hence any $\delta_\varepsilon\in(0,\gamma_\varepsilon)$, for example $\delta_\varepsilon=\gamma_\varepsilon/2$, gives
-
-  $$
-  F(x_0+\delta_\varepsilon)<F(x_0)+\varepsilon.
-  $$
-
-Durrett's semialgebra is
-
-$$
-\mathcal S_1=\{\varnothing\}\cup
-\{(a,b]:-\infty\leq a<b\leq+\infty\}.
-$$
-
-Thus $\varnothing$ is included separately, since the interval notation only allows $a<b$. The set function in Theorem 1.1.4 should therefore be understood as
-
-$$
-\mu(\varnothing):=0,
-\qquad
-\mu((a,b]):=F(b)-F(a).
-$$
-
-So the hypothesis $\mu(\varnothing)=0$ in Theorem 1.1.9 is satisfied by definition.
-
-## Why does Theorem 1.1.9 require only countable subadditivity, not countable additivity?
-
-Because condition (i) already supplies finite additivity. Suppose
-
-$$
-S=\mathop{\dot\bigcup}_{i=1}^{\infty}S_i,
-$$
-
-with $S,S_i\in\mathcal S$. Condition (ii) gives one direction:
-
-$$
-\mu(S)\leq\sum_{i=1}^{\infty}\mu(S_i).
-$$
-
-For every $n$, finite additivity and monotonicity give
-
-$$
+Suppose $S=\bigsqcup_{i=1}^\infty S_i$ with $S,S_i\in\mathcal S$. Condition (i), together with Lemma 1.1.10, already gives the reverse inequality. Indeed, for every $n$,
+\[
+\bigsqcup_{i=1}^n S_i\subseteq S,
+\]
+so by Lemma 1.1.10(a)--(b),
+\[
 \sum_{i=1}^n\mu(S_i)
-=\bar\mu\!\left(\mathop{\dot\bigcup}_{i=1}^nS_i\right)
-\leq\mu(S).
-$$
-
-Letting $n\to\infty$ gives the reverse inequality. Thus conditions (i) and (ii) together already imply the required countable additivity whenever the countable disjoint union stays in $\mathcal S$. It would be redundant to assume it again.
-
-## Proof of Theorem 1.1.4, with the details filled in
-
-*Proof.* First note that $\mu$ is allowed to take values in the extended nonnegative reals. For example, when $F(x)=x$, the resulting Lebesgue measure has $\mu(\mathbb R)=+\infty$.
-
-Since $F:\mathbb R\to\mathbb R$ is finite-valued and nondecreasing, the limits
-
-$$
-F(+\infty):=\lim_{x\uparrow+\infty}F(x)
-=\sup_{x\in\mathbb R}F(x)
-$$
-
-and
-
-$$
-F(-\infty):=\lim_{x\downarrow-\infty}F(x)
-=\inf_{x\in\mathbb R}F(x)
-$$
-
-exist in the extended reals. Moreover,
-
-$$
-F(-\infty)<+\infty,
-\qquad
-F(+\infty)>-\infty.
-$$
-
-Indeed, $F(-\infty)\leq F(x)\leq F(+\infty)$ for every finite $x$, while $F(x)\in\mathbb R$. Therefore $F(b)-F(a)$ is well-defined in $[0,+\infty]$ whenever $a<b$. The possible forms are finite minus finite, $+\infty$ minus finite, finite minus $-\infty$, or $+\infty$ minus $-\infty$. The undefined forms $+\infty-(+\infty)$ and $-\infty-(-\infty)$ cannot occur here. Notice also that $-\infty-(+\infty)$ is not a valid nonnegative extended-real difference; it is ruled out by $a<b$ and monotonicity.
-
-### Condition (i): finite additivity
-
-Suppose, after discarding any empty pieces, that
-
-$$
-(a,b]=\mathop{\dot\bigcup}_{i=1}^n(a_i,b_i].
-$$
-
-After relabelling the intervals from left to right, there can be neither gaps nor overlaps, so
-
-$$
-a_1=a,
-\qquad
-b_n=b,
-\qquad
-a_i=b_{i-1}\quad(2\leq i\leq n).
-$$
-
-Therefore the sum telescopes:
-
-$$
-\sum_{i=1}^n\mu((a_i,b_i])
-=\sum_{i=1}^n\bigl(F(b_i)-F(a_i)\bigr)
-=F(b)-F(a)
-=\mu((a,b]).
-$$
-
-The same conclusion holds in the extended-real boundary cases. Hence condition (i) of Theorem 1.1.9 holds.
-
-### Condition (ii): countable subadditivity
-
-First suppose the interval on the left has finite endpoints:
-
-$$
--\infty<a<b<+\infty,
-\qquad
-(a,b]\subseteq\bigcup_{i=1}^{\infty}(c_i,d_i].
-$$
-
-Durrett's claim that we may assume the covering intervals have finite endpoints is justified as follows. Define
-
-$$
-I_i:=(c_i,d_i]\cap(a,b].
-$$
-
-Then $I_i$ is either empty or
-
-$$
-I_i=\bigl(\max\{c_i,a\},\,\min\{d_i,b\}\bigr].
-$$
-
-Since $a$ and $b$ are finite, every nonempty $I_i$ has finite endpoints, even when $c_i=-\infty$ or $d_i=+\infty$. The $I_i$ still cover $(a,b]$. Also $I_i\subseteq(c_i,d_i]$, so monotonicity from Lemma 1.1.10(b), in the case of one covering set, gives
-
-$$
-\mu(I_i)=\bar\mu(I_i)
-\leq\bar\mu((c_i,d_i])
-=\mu((c_i,d_i]).
-$$
-
-Thus replacing the original intervals by the $I_i$ does not weaken the desired covering inequality. Rename the nonempty $I_i$ as $(a_i,b_i]$, so now
-
-$$
--\infty<a_i<b_i<+\infty.
-$$
-
-Fix $\varepsilon>0$. By right continuity of $F$ at $a$, choose $\delta>0$, small enough that $a+\delta<b$, such that
-
-$$
-F(a+\delta)<F(a)+\varepsilon.
-$$
-
-For every $i$, by right continuity at $b_i$, choose $\eta_i>0$ such that
-
-$$
-F(b_i+\eta_i)<F(b_i)+\varepsilon 2^{-i}.
-$$
-
-Why exactly these shifts? The right endpoints $b_i$ are enlarged so that the covering sets become open, while the left endpoint $a$ is moved to the right so that the set being covered becomes compact. Indeed,
-
-$$
-[a+\delta,b]
-\subseteq(a,b]
-\subseteq\bigcup_{i=1}^{\infty}(a_i,b_i]
-\subseteq\bigcup_{i=1}^{\infty}(a_i,b_i+\eta_i).
-$$
-
-The set $[a+\delta,b]$ is compact and the intervals $(a_i,b_i+\eta_i)$ are open. By Heine--Borel, there is a finite set of indices $i_1,\ldots,i_J$ such that
-
-$$
-[a+\delta,b]
-\subseteq\bigcup_{j=1}^J(a_{i_j},b_{i_j}+\eta_{i_j}).
-$$
-
-Hence
-
-$$
-(a+\delta,b]
-\subseteq\bigcup_{j=1}^J(a_{i_j},b_{i_j}+\eta_{i_j}].
-$$
-
-These half-open intervals lie in $\mathcal S_1\subseteq\overline{\mathcal S_1}$, and their union is finite. Lemma 1.1.10(b) therefore gives
-
-$$
-F(b)-F(a+\delta)
+=
+\bar\mu\left(\bigsqcup_{i=1}^nS_i\right)
 \leq
-\sum_{j=1}^J
-\bigl(F(b_{i_j}+\eta_{i_j})-F(a_{i_j})\bigr).
-$$
+\bar\mu(S)
+=
+\mu(S).
+\]
+Letting $n\to\infty$ gives
+\[
+\sum_{i=1}^\infty\mu(S_i)\leq\mu(S).
+\]
+Therefore Theorem 1.1.9 only needs to assume the opposite inequality
+\[
+\mu(S)\leq\sum_{i=1}^\infty\mu(S_i),
+\]
+and combining the two inequalities gives countable additivity
+\[
+\mu(S)=\sum_{i=1}^\infty\mu(S_i).
+\]
 
-Every term is nonnegative, so we may bound the selected finite sum by the entire series:
 
-$$
-F(b)-F(a+\delta)
-\leq
-\sum_{i=1}^{\infty}
-\bigl(F(b_i+\eta_i)-F(a_i)\bigr).
-$$
+*Proof of Theorem 1.1.4.*
 
-By the choices of $\delta$ and $\eta_i$,
+*Proof.*
 
-$$
-F(b)-F(a)
-<F(b)-F(a+\delta)+\varepsilon
-$$
+- First note $\mu$ is allowed be on extended real lines, for example for Lesbesgue meausre $\mu(\mathbb R)=+\infty$, with $F(x) = x$, so we can even allow for $F(+\infty)=+\infty$, where
 
-and
+  \[
+  F(+\infty) = \lim_{x\uparrow +\infty} F(x) , \qquad F(-\infty) = \lim_{x\downarrow -\infty}F(x)
+  \]
 
-$$
-\sum_{i=1}^{\infty}
-\bigl(F(b_i+\eta_i)-F(a_i)\bigr)
-\leq
-\sum_{i=1}^{\infty}
-\bigl(F(b_i)-F(a_i)\bigr)
-+\varepsilon\sum_{i=1}^{\infty}2^{-i}.
-$$
+- Since $$F:\mathbb R\to\mathbb R, \qquad \forall_{x\in \mathbb R}\, F(x)\in \mathbb R$$ is finite-valued and nondecreasing, we have
+  $F(-\infty)=\inf_{x\in\mathbb R}F(x)$. Hence $F(-\infty)=+\infty$ is impossible, because that would force $F(x)=+\infty$ for every $x\in\mathbb R$. Similarly, $F(+\infty)=\sup_{x\in\mathbb R}F(x)$ so $F(+\infty)\neq -\infty$ which would force $F(x)=-\infty\forall x\in \mathbb R$. Thus
 
-Since $\sum_{i=1}^{\infty}2^{-i}=1$, we obtain
+  \[
+  F(-\infty)<+\infty, \qquad F(+\infty) >-\infty
+  \]
 
-$$
-\mu((a,b])
-=F(b)-F(a)
-\leq
-2\varepsilon+
-\sum_{i=1}^{\infty}\mu((a_i,b_i]).
-$$
+- we want to rule out $(+\infty)-(+\infty)$ or $(-\infty)-(-\infty)$. The other combinations $(+\infty) - (-\infty)$ and $(-\infty) - (+\infty)$ are defined in the extended real numbers, but $(-\infty)-(+\infty)=-\infty$ is not an allowed value of a measure. In any case, $(-\infty)-(+\infty)$ is automatically ruled out since $F$ is nondecreasing and hence $F(a)\leq F(b)$ whenever $a<b$. Thus
 
-Because $\varepsilon>0$ is arbitrary,
+  \[
+  \mu: \mathcal S \to [0,+\infty].
+  \]
 
-$$
-\mu((a,b])
-\leq
-\sum_{i=1}^{\infty}\mu((a_i,b_i]).
-$$
+- To prove (ii) we want finte end points $-\infty<a<b<+\infty$ of $(a,b]$ so later when shifted/enlarged can use compactness
 
-Finally, remove the finite-endpoint restriction on $(a,b]$. Keep each finite endpoint fixed; approximate only an infinite endpoint. Choose finite intervals $(A_n,B_n]\subseteq(a,b]$ so that
+- Without loss of generality WLOG, let
 
-$$
-A_n\downarrow-\infty\quad\text{if }a=-\infty,
-\qquad
-B_n\uparrow+\infty\quad\text{if }b=+\infty.
-$$
+  \[
+  (a,b]\subseteq \cup_{i=1}^\infty (a_i,b_i], \qquad -\infty< a_i<b_i<+\infty
+  \]
 
-For every $n$, the result already proved gives
+  - Here WLOG means the following, suppose we have proven that for $-\infty<a_i<b_i<+\infty$,
+    $
+    \mu((a,b])\leq \sum_{i=1}^\infty \mu((a_i,b_i])
+    $. Now what if we are given that $(a,b]\subseteq \cup_{i\geq 1}(c_i,d_i]$ where $-\infty\leq c_i<d_i\leq +\infty$. Then define
 
-$$
-F(B_n)-F(A_n)
-\leq
-\sum_{i=1}^{\infty}\bigl(F(b_i)-F(a_i)\bigr).
-$$
+    \[
+    I_i = (a,b]\cap (c_i,d_i] \in \mathcal S.
+    \]
 
-By the definitions of $F(-\infty)$ and $F(+\infty)$,
+    Each nonempty $I_i$ has finite end-points (recall $\mathcal S$ preserves intersections!); empty $I_i$'s can simply be discarded.
 
-$$
-F(B_n)-F(A_n)\longrightarrow F(b)-F(a).
-$$
+  - Thus, recycle above WLOG result, since $(a,b]\subseteq \cup_{i\geq 1} I_i$, we have $\mu((a,b])\leq \sum_{i\geq 1}\mu(I_i)$. Remain to show $\sum_{i\geq 1}\mu(I_i)\leq \sum_{i\geq 1}\mu((c_i,d_i])$:
 
-The right-hand side is constant in $n$, so taking the limit gives condition (ii) in full generality. There is no need to put an extra, useless limit around the series on the right.
+    *Proof.*
 
-Theorem 1.1.9 now extends $\mu$ to a measure on $\sigma(\mathcal S_1)=\mathcal B(\mathbb R)$. Finally,
+    $\mathcal S\subseteq  \mathcal{\overline{S}}$, so using Lemma 1.1.10(b) (base case $n=1$), $I_i\subseteq (c_i,d_i]$ implies
 
-$$
-\mathbb R=\bigcup_{n=1}^{\infty}(-n,n]
-$$
+    \[
+    \bar{\mu}(I_i)\leq \bar{\mu}((c_i,d_i]),
+    \qquad
+    I_i,(c_i,d_i]\in \mathcal S,
+    \qquad \forall i\in \mathbb N.
+    \]
 
-and
+    Take finite partial sums and then limits, so
 
-$$
-\mu((-n,n])=F(n)-F(-n)<\infty,
-$$
+    \[
+    \sum_{i=1}^\infty\bar\mu(I_i)
+    \leq
+    \sum_{i=1}^\infty\bar\mu((c_i,d_i]).
+    \]
 
-so the extension is $\sigma$-finite. The uniqueness conclusion in Theorem 1.1.9 therefore applies. $\square$
+    Then $\bar{\mu}\equiv \mu$ when applied to sets in $\mathcal S$ by defn of extension.
+
+- anyways so now consider $-\infty<a<b<+\infty$ and $-\infty<a_i<b_i<+\infty$.
+
+  Our aim now is to reduce the RHS of $\subseteq$ from countable union to finite union. so use heine borel. Heine--Borel can only be applied to a compact set that is actually covered by the given open cover. We are given
+
+  \[
+  (a,b]\subseteq \cup_{i\geq 1} (a_i,b_i]
+  \]
+
+  We now examine both left and right end points of $(a,b]$ for a) compactness, and of each $(a_i,b_i]$ for b) openness for open cover. so that later can use Heine-Borel:
+
+  1. Right end: we can enlarge $b_i$ to some $b_i+\eta_i$ for some chosen $\eta_i>0$ and get open cover prepared for later Heine-Borel:
+
+     \[
+     (a,b]\subseteq \cup_{i\geq 1} (a_i,b_i+\eta_i)
+     \]
+
+     also $b]$ is consistent with compactness $[.,.]$ interval design
+
+  2. Left end: $(a_i,$ already openness on the left, but this is not compact, and we are NOT sure whether slightly enlarged $[a,b]$ can be covered by open sets. so instead of open covering whole $(a,b]$, we will later open cover $(a+\delta,b]$ and in fact, for compactness,
+
+     \[
+     [a+\delta,b],
+     \]
+
+     for some $\delta>0$, and we are indeed sure that there exists open cover for this because
+
+     \[
+     (a+\delta, b]\subseteq[a+\delta, b]\subseteq (a,b]\subseteq \cup_{i\geq 1} (a_i,b_i]\subseteq \cup_{i\geq 1} (a_i,b_i+\eta_i)
+     \]
+
+  3. To summarise, we only open cover a subset inside of $(a,b]$, later we will control $\delta$ to make it small. Also note that here $(.,.)$ may NOT be in $\mathcal S$, above are just pure subset relations, have not applied $\mu$ on them yet so no worry.
+
+- Fix $\epsilon>0$. By right continuity, choose $\delta>0$ and $\eta_i>0$, $i\in\mathbb N$, such that
+
+  \[
+  F(a+\delta)<F(a)+\epsilon,
+  \qquad
+  F(b_i+\eta_i)<F(b_i)+\epsilon 2^{-i}.
+  \]
+
+  Using compactness of $[a+\delta, b]$ and openness of $(a_i, b_i+\eta_i)$, by Heine-Borel, there exists finite subcover indexed by $i_j,\forall j=1,\ldots,J$, $\{i_1,\ldots,i_J\}\subseteq \mathbb N$, such that
+
+  \[
+  [a+\delta, b]\subseteq \cup_{i= 1}^\infty (a_i,b_i+\eta_i)
+  \implies
+  [a+\delta, b]\subseteq \cup_{j= 1}^J (a_{i_j},b_{i_j}+\eta_{i_j}).
+  \]
+
+  <!--
+  now let
+  \[
+  \alpha_j:= a_{i_j}, \qquad \beta_j := b_{i_j}+\eta_{i_j}, \qquad j=1,\ldots,J
+  \]
+  -->
+
+- Thus, since $(a+\delta,b]\subseteq [a+\delta,b]$, and $ \cup_{j= 1}^J (a_{i_j},b_{i_j}+\eta_{i_j})\subseteq \cup_{j= 1}^J (a_{i_j},b_{i_j}+\eta_{i_j}]$, we have:
+
+  \[
+  (a+\delta,b]\subseteq \cup_{j= 1}^J (a_{i_j},b_{i_j}+\eta_{i_j}].
+  \]
+
+  Since $(.,.]\in \mathcal S\subseteq \mathcal{\overline{S}}$ which is an algebra including finite unions $\cup_{j=1}^J$, apply Lemma 1.1.10(b) finite subadditivity:
+
+  \[
+  \bar{\mu} ((a+\delta,b])\leq \sum_{j=1}^J
+  \bar{\mu}\left((a_{i_j},b_{i_j}+\eta_{i_j}]
+  \right)
+  \]
+
+  and since $\mu(S)\equiv \bar \mu(S)$ forall $S\in \mathcal S$,
+
+  \[
+  \implies {\mu} ((a+\delta,b])\leq \sum_{j=1}^J
+  {\mu}\left((a_{i_j},b_{i_j}+\eta_{i_j}]
+  \right)
+  \leq \sum_{i=1}^\infty
+  {\mu}\left((a_{i},b_{i}+\eta_{i}]
+  \right)
+  \]
+
+  since each $\mu(.)\geq 0$. then finally,
+
+  \[
+  \implies F(b) - F(a+\delta) \leq \sum_{i=1}^\infty
+  [
+  F(b_{i}+\eta_{i})- F(a_{i})].
+  \]
+
+- then use continuity on the choice of $\delta$ and $\eta_i$. Since
+
+  \[
+  F(a+\delta)<F(a)+\epsilon
+  \]
+
+  we have
+
+  \[
+  F(b)-F(a)
+  <
+  F(b)-F(a+\delta)+\epsilon.
+  \]
+
+  Also,
+
+  \[
+  F(b_i+\eta_i)-F(a_i)
+  <
+  F(b_i)-F(a_i)+\epsilon2^{-i}.
+  \]
+
+  Therefore,
+
+  \[
+  F(b)-F(a)
+  \leq
+  \sum_{i=1}^\infty [F(b_i)-F(a_i)]
+  +
+  \epsilon
+  +
+  \sum_{i=1}^\infty\epsilon2^{-i}
+  =
+  \sum_{i=1}^\infty [F(b_i)-F(a_i)]
+  +2\epsilon.
+  \]
+
+  Since $\epsilon>0$ is arbitrary,
+
+  \[
+  F(b)-F(a)
+  \leq
+  \sum_{i=1}^\infty [F(b_i)-F(a_i)].
+  \]
+
+- To remove the finite-endpoint restriction, work at the level of $F$, not by continuity of $\mu$ as not guaranteed. If $a=-\infty$, choose finite $A_n\downarrow-\infty$, so $F(A_n)\to F(-\infty)=F(a)$ by definition. If $b=+\infty$, choose finite $B_n\uparrow+\infty$, so $F(B_n)\to F(+\infty)=F(b)$ by definition. If $a>-\infty$, keep $A_n=a$ fixed, and if $b<\infty$, keep $B_n=b$ fixed rather than take $B_n\uparrow b$, since right continuity does not imply $F(B_n)\to F(b)$ from the left; the limit could be $F(b-)$. Thus one only approximates the infinite endpoints by finite ones, and then passes to the limit in the expressions $F(B_n)-F(A_n)$.
+
+  For every $n$, $(A_n,B_n]\subseteq(a,b]$, so the finite-endpoint result gives
+
+  \[
+  F(B_n)-F(A_n)
+  \leq
+  \sum_{i=1}^\infty (F(b_i)-F(a_i)).
+  \]
+
+  Therefore,
+
+  \[
+  \mu((a,b])
+  =
+  F(b)-F(a)
+  =
+  \lim_{n\to\infty}\bigl(F(B_n)-F(A_n)\bigr)
+  \leq
+  \sum_{i=1}^\infty (F(b_i)-F(a_i)).
+  \]
+
+  Note that there is no need for a limit on the RHS, since it does not depend on $n$.

@@ -18,12 +18,8 @@ layout: compress
 
     {{ content }}
 
-    <div class="page__footer">
-      <footer>
-        {% include footer/custom.html %}
-        {% include footer.html %}
-      </footer>
-    </div>
+    {% comment %}Keep non-visual site scripts such as MathJax without rendering the footer bar.{% endcomment %}
+    {% include footer/custom.html %}
 
     {% include scripts.html %}
 
