@@ -83,3 +83,13 @@ $$
 T(N_t)\leq t<T(N_t+1).
 $$
 
+p.68: since $T_n<+\infty$, for all $n$, we have $N_t \uparrow +\infty$ as $t\to \infty$:
+
+*Proof.* Fix $M>0$, and choose $m_M>M$. Since $T(m_M)<+\infty$ we can pick $T(m_M)\in \mathbb R$ such that for all $t\geq T(m_M)$, 
+
+$$
+N_{t}\geq N_{T(m_M)} = \sup\{n\in\mathbb N:T(n)\leq T(m_M)\}\geq m_M>M,
+$$
+
+thus $N_{t}>M$ for any arbitrary $M$ by choosing large enough $t$.  Remark. More detailed as $T_n<\infty$ a.e. not everywhere: suppose $T_n<\infty$ a.s. for every $n\in\mathbb N$. Let
+$\Omega_0:=\bigcap_{n=1}^{\infty}\{\omega:T_n(\omega)<\infty\},$ so that $\mathbb P(\Omega_0)=1$. Fix $\omega\in\Omega_0$ and $M>0$. Choose $m\in\mathbb N$ with $m>M$ and set $t_0=T_m(\omega)<\infty$. Then, for all $t\ge t_0$, $N_t(\omega)\ge N_{t_0}(\omega)=\sup\{n\in\mathbb N:T_n(\omega)\le t_0\} \ge m>M$. Since $M>0$ is arbitrary and $N_t$ is nondecreasing in $t$, we conclude that $N_t\uparrow+\infty$ as $t\to\infty$ a.s.
