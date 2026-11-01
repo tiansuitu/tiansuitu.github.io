@@ -1,0 +1,79 @@
+---
+layout: archive
+title: "STAT5010 Study Notes"
+permalink: /stat5010-study/
+author_profile: true
+---
+
+<style>
+  /* Styles are confined to this study-note index. */
+  .stat5010-index { max-width: 48rem; }
+  .stat5010-index a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: #aeb5ba;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+  .stat5010-index a:hover,
+  .stat5010-index a:focus {
+    color: inherit;
+    text-decoration-color: currentColor;
+  }
+  .stat5010-index .stat5010-intro {
+    margin: 0 0 2rem;
+    line-height: 1.65;
+  }
+  .stat5010-index h2 {
+    margin: 2rem 0 0.5rem;
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+  .stat5010-index .stat5010-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .stat5010-index .stat5010-item {
+    margin: 0;
+    padding: 0.95rem 0 1rem;
+    border-bottom: 1px solid #e7e8ea;
+  }
+  .stat5010-index .stat5010-item:last-child { border-bottom: none; }
+  .stat5010-index .stat5010-item h3 {
+    margin: 0 0 0.25rem;
+    font-size: 1em;
+    font-weight: 600;
+    line-height: 1.45;
+  }
+  .stat5010-index .stat5010-item time {
+    display: block;
+    font-size: 0.84em;
+    color: #666;
+  }
+</style>
+
+<div class="stat5010-index">
+  <p class="stat5010-intro">
+    An informal, dated record of questions, conjectures, and working notes from
+    STAT5010 Advanced Statistical Inference. These are notes from studying,
+    rather than a polished set of lecture notes or solutions.
+  </p>
+
+  <section aria-labelledby="stat5010-reading">
+    <h2 id="stat5010-reading">Study notes</h2>
+    {% assign stat5010_posts = site.tags["stat5010-study"] | sort: "date" | reverse %}
+    {% if stat5010_posts and stat5010_posts.size > 0 %}
+      <ul class="stat5010-list">
+        {% for post in stat5010_posts %}
+          <li class="stat5010-item">
+            <h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
+            <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%B %d, %Y" }}</time>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No study notes yet.</p>
+    {% endif %}
+  </section>
+</div>
