@@ -68,36 +68,6 @@ author_profile: true
     (5th edition), as part of my preparation for STAT5005, the qualifying examination for the PhD programme in Statistics at CUHK.
   </p>
 
-  <section aria-labelledby="durrett-unresolved">
-    <h2 id="durrett-unresolved">Unresolved questions</h2>
-    <ol class="durrett-list">
-      <li class="durrett-item">
-        <h3>Exercise 2.4.2 (p. 69) — Mutual independence of normalized increments</h3>
-        <time datetime="2026-11-01">November 1, 2026</time>
-        <p class="durrett-question">
-          Let \(Y_n=X_n/|X_{n-1}|\), where \(X_0=(1,0)\).
-          Prove that \(\sigma(Y_1,\ldots,Y_n)\subseteq\sigma(X_1,\ldots,X_n)\),
-          and use the independence of \(Y_{n+1}\) from \((X_1,\ldots,X_n)\)
-          to establish mutual, rather than merely pairwise, independence of \((Y_n)_{n\ge1}\).
-        </p>
-      </li>
-      <li class="durrett-item">
-        <h3>Example 2.4.10 (p. 69) — Shannon's asymptotic equipartition property</h3>
-        <time datetime="2026-11-01">November 1, 2026</time>
-        <p class="durrett-question">
-          Let \(\pi_n=\prod_{i=1}^n p(X_i)\) and
-          \(H=-\sum_{k=1}^r p(k)\log p(k)\).
-          Starting from \(-n^{-1}\log\pi_n\to H\) almost surely,
-          prove that for every \(\varepsilon>0\),
-        </p>
-        <p>\[
-          \mathbb P\!\left(e^{-n(H+\varepsilon)}\leq\pi_n
-          \leq e^{-n(H-\varepsilon)}\right)\longrightarrow 1.
-        \]</p>
-      </li>
-    </ol>
-  </section>
-
   <section aria-labelledby="durrett-reading">
     <h2 id="durrett-reading">Reading notes</h2>
     {% assign durrett_posts = site.tags["durrett-waffling"] | sort: "date" | reverse %}
@@ -113,5 +83,21 @@ author_profile: true
     {% else %}
       <p>No reading notes yet.</p>
     {% endif %}
+  </section>
+
+  <section aria-labelledby="durrett-unresolved">
+    <h2 id="durrett-unresolved">To do</h2>
+    <ul class="durrett-list">
+      <li class="durrett-item">
+        <h3>Exercise 2.4.2 (p. 69) — Mutual independence</h3>
+        <time datetime="2026-11-01">November 1, 2026</time>
+        <p class="durrett-question">Show \(\sigma(Y_1,\ldots,Y_n)\subseteq\sigma(X_1,\ldots,X_n)\), then deduce mutual independence of \(Y_n=X_n/|X_{n-1}|\).</p>
+      </li>
+      <li class="durrett-item">
+        <h3>Example 2.4.10 (p. 69) — Shannon's asymptotic equipartition property</h3>
+        <time datetime="2026-11-01">November 1, 2026</time>
+        <p class="durrett-question">From \(-n^{-1}\log\pi_n\to H\) a.s., prove \(\mathbb P(e^{-n(H+\varepsilon)}\leq\pi_n\leq e^{-n(H-\varepsilon)})\to1\) for every \(\varepsilon>0\).</p>
+      </li>
+    </ul>
   </section>
 </div>
