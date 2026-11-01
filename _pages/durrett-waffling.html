@@ -7,6 +7,26 @@ author_profile: true
 
 An informal, dated diary of my thoughts, questions, and working notes while reading Rick Durrett's [*Probability: Theory and Examples*](https://www.cambridge.org/core/books/probability/DD9A1907F810BB14CCFF022CDFC5677A). These notes are part of my preparation for STAT5005, the qualifying examination for the PhD programme in Statistics at CUHK.
 
+## Unresolved questions
+
+1. **2026-11-01 — Exercise 2.4.2 (p. 69): Mutual independence of normalized increments.**  
+   Let \(Y_n=X_n/|X_{n-1}|\), where \(X_0=(1,0)\). Prove that
+   \(\sigma(Y_1,\ldots,Y_n)\subseteq\sigma(X_1,\ldots,X_n)\).
+   Use the assumption that \(Y_{n+1}\) is independent of \((X_1,\ldots,X_n)\)
+   to establish mutual independence of \((Y_n)_{n\ge1}\), rather than only pairwise independence.
+
+2. **2026-11-01 — Example 2.4.10 (p. 69): Shannon's asymptotic equipartition property.**  
+   With \(\pi_n=\prod_{i=1}^n p(X_i)\) and
+   \(H=-\sum_{k=1}^r p(k)\log p(k)\), prove from
+   \(-n^{-1}\log\pi_n\to H\) almost surely that, for every \(\varepsilon>0\),
+   \[
+   \mathbb P\!\left(
+     e^{-n(H+\varepsilon)}\le\pi_n\le e^{-n(H-\varepsilon)}
+   \right)\longrightarrow 1.
+   \]
+
+## Reading notes
+
 {% include base_path %}
 {% assign durrett_posts = site.tags["durrett-waffling"] %}
 
