@@ -4,7 +4,21 @@ layout: default
 
 {% include base_path %}
 
-<div id="main" role="main">
+<style>
+  /* Only Durrett note pages: centered, more generous reading width. */
+  #main.durrett-note-main {
+    max-width: 92rem;
+  }
+  #main.durrett-note-main > article.page {
+    float: none;
+    width: 100%;
+    max-width: 84rem;
+    margin: 0 auto;
+    padding: 0;
+  }
+</style>
+
+<div id="main" class="durrett-note-main" role="main">
   {% include sidebar.html %}
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
@@ -21,7 +35,7 @@ layout: default
           </p>
         {% endif %}
         <p style="margin: 0 0 1.5rem; font-size: 0.82em;">
-          <a href="{{ '/durrett-waffling/' | relative_url }}" style="color: inherit; text-decoration: underline; text-decoration-color: #aeb5ba; text-underline-offset: 3px;">Back to Durrett Waffling</a>
+          <a href="{{ '/durrett-waffling/' | relative_url }}" style="color: inherit; text-decoration: underline; text-decoration-color: #aeb5ba; text-underline-offset: 3px;">Back</a>
         </p>
       </header>
 
