@@ -5,49 +5,113 @@ permalink: /durrett-waffling/
 author_profile: true
 ---
 
-An informal, dated diary of my thoughts, questions, and working notes while reading Rick Durrett's [*Probability: Theory and Examples*](https://www.cambridge.org/core/books/probability/DD9A1907F810BB14CCFF022CDFC5677A). These notes are part of my preparation for STAT5005, the qualifying examination for the PhD programme in Statistics at CUHK.
+<style>
+  /* Local to the Durrett Waffling index; other website pages are unaffected. */
+  .durrett-index {
+    max-width: 48rem;
+  }
+  .durrett-index a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: #aeb5ba;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+  .durrett-index a:hover,
+  .durrett-index a:focus {
+    color: inherit;
+    text-decoration-color: currentColor;
+  }
+  .durrett-index .durrett-intro {
+    margin: 0 0 2rem;
+    line-height: 1.65;
+  }
+  .durrett-index h2 {
+    margin: 2rem 0 0.5rem;
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+  .durrett-index .durrett-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .durrett-index .durrett-item {
+    margin: 0;
+    padding: 0.95rem 0 1rem;
+    border-bottom: 1px solid #e7e8ea;
+  }
+  .durrett-index .durrett-item:last-child {
+    border-bottom: none;
+  }
+  .durrett-index .durrett-item h3 {
+    margin: 0 0 0.25rem;
+    font-size: 1em;
+    font-weight: 600;
+    line-height: 1.45;
+  }
+  .durrett-index .durrett-item time {
+    display: block;
+    font-size: 0.84em;
+    color: #666;
+  }
+  .durrett-index .durrett-question {
+    margin: 0.65rem 0 0;
+    line-height: 1.65;
+  }
+</style>
 
-<h2>Unresolved questions</h2>
+<div class="durrett-index">
+  <p class="durrett-intro">
+    An informal, dated record of questions and working notes while reading Rick Durrett's
+    <a href="https://www.cambridge.org/core/books/probability/DD9A1907F810BB14CCFF022CDFC5677A"><em>Probability: Theory and Examples</em></a>
+    (5th edition), as part of my preparation for STAT5005, the qualifying examination for the PhD programme in Statistics at CUHK.
+  </p>
 
-<ol>
-  <li>
-    <p><strong>2026-11-01 — Exercise 2.4.2 (p. 69): Mutual independence of normalized increments.</strong>
-    Let \(Y_n=X_n/|X_{n-1}|\), where \(X_0=(1,0)\). Prove that
-    \(\sigma(Y_1,\ldots,Y_n)\subseteq\sigma(X_1,\ldots,X_n)\).
-    Use the assumption that \(Y_{n+1}\) is independent of \((X_1,\ldots,X_n)\)
-    to establish mutual independence of \((Y_n)_{n\ge1}\), rather than only pairwise independence.</p>
-  </li>
-  <li>
-    <p><strong>2026-11-01 — Example 2.4.10 (p. 69): Shannon's asymptotic equipartition property.</strong>
-    With \(\pi_n=\prod_{i=1}^n p(X_i)\) and \(H=-\sum_{k=1}^r p(k)\log p(k)\),
-    prove from \(-n^{-1}\log\pi_n\to H\) almost surely that, for every \(\varepsilon>0\),</p>
-    <p>\[
-      \mathbb P\!\left(e^{-n(H+\varepsilon)}\le\pi_n\le e^{-n(H-\varepsilon)}\right)
-      \longrightarrow 1.
-    \]</p>
-  </li>
-</ol>
+  <section aria-labelledby="durrett-unresolved">
+    <h2 id="durrett-unresolved">Unresolved questions</h2>
+    <ol class="durrett-list">
+      <li class="durrett-item">
+        <h3>Exercise 2.4.2 (p. 69) — Mutual independence of normalized increments</h3>
+        <time datetime="2026-11-01">November 1, 2026</time>
+        <p class="durrett-question">
+          Let \(Y_n=X_n/|X_{n-1}|\), where \(X_0=(1,0)\).
+          Prove that \(\sigma(Y_1,\ldots,Y_n)\subseteq\sigma(X_1,\ldots,X_n)\),
+          and use the independence of \(Y_{n+1}\) from \((X_1,\ldots,X_n)\)
+          to establish mutual, rather than merely pairwise, independence of \((Y_n)_{n\ge1}\).
+        </p>
+      </li>
+      <li class="durrett-item">
+        <h3>Example 2.4.10 (p. 69) — Shannon's asymptotic equipartition property</h3>
+        <time datetime="2026-11-01">November 1, 2026</time>
+        <p class="durrett-question">
+          Let \(\pi_n=\prod_{i=1}^n p(X_i)\) and
+          \(H=-\sum_{k=1}^r p(k)\log p(k)\).
+          Starting from \(-n^{-1}\log\pi_n\to H\) almost surely,
+          prove that for every \(\varepsilon>0\),
+        </p>
+        <p>\[
+          \mathbb P\!\left(e^{-n(H+\varepsilon)}\leq\pi_n
+          \leq e^{-n(H-\varepsilon)}\right)\longrightarrow 1.
+        \]</p>
+      </li>
+    </ol>
+  </section>
 
-<h2>Reading notes</h2>
-
-{% include base_path %}
-{% assign durrett_posts = site.tags["durrett-waffling"] %}
-
-{% if durrett_posts and durrett_posts.size > 0 %}
-  {% for post in durrett_posts %}
-    {% include archive-single.html %}
-  {% endfor %}
-{% else %}
-*Notes are on the way.*
-{% endif %}
-
-{% comment %}
-To add an entry here, create a dated file in _posts and include this front matter:
-
----
-title: "Your note title"
-date: YYYY-MM-DD
-tags:
-  - durrett-waffling
----
-{% endcomment %}
+  <section aria-labelledby="durrett-reading">
+    <h2 id="durrett-reading">Reading notes</h2>
+    {% assign durrett_posts = site.tags["durrett-waffling"] | sort: "date" | reverse %}
+    {% if durrett_posts and durrett_posts.size > 0 %}
+      <ul class="durrett-list">
+        {% for post in durrett_posts %}
+          <li class="durrett-item">
+            <h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
+            <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%B %d, %Y" }}</time>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No reading notes yet.</p>
+    {% endif %}
+  </section>
+</div>
