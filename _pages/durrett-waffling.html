@@ -89,6 +89,37 @@ author_profile: true
     <h2 id="durrett-unresolved">To do</h2>
     <ul class="durrett-list">
       <li class="durrett-item">
+        <h3>Two meanings of \(\limsup\): events vs. random variables</h3>
+        <time datetime="2026-11-04">November 4, 2026</time>
+
+        <p class="durrett-question">Let \((\Omega,\mathcal F,\mathbb P)\) be a probability space, \(Y_n,Y\) real-valued random variables, and \(\varepsilon&gt;0\). The following two expressions look similar but define different events:</p>
+
+        <div class="durrett-question">
+          \[
+          A_\varepsilon:=\limsup_{n\to\infty}\{|Y_n-Y|&gt;\varepsilon\}
+          =\bigcap_{N=1}^{\infty}\bigcup_{n=N}^{\infty}
+          \{\omega\in\Omega:|Y_n(\omega)-Y(\omega)|&gt;\varepsilon\}.
+          \]
+        </div>
+        <p class="durrett-question">\(A_\varepsilon\): the error exceeds \(\varepsilon\) <em>infinitely often</em> along the fixed outcome \(\omega\).</p>
+
+        <div class="durrett-question">
+          \[
+          Z(\omega):=\limsup_{n\to\infty}|Y_n(\omega)-Y(\omega)|,
+          \qquad
+          B_\varepsilon:=\{Z&gt;\varepsilon\}
+          =\{\omega:\limsup_{n\to\infty}|Y_n(\omega)-Y(\omega)|&gt;\varepsilon\}.
+          \]
+        </div>
+        <p class="durrett-question">\(Z\) is an extended real-valued random variable; \(B_\varepsilon\) is the event that its value exceeds \(\varepsilon\). Thus <em>both</em> \(A_\varepsilon\) and \(B_\varepsilon\) are events, rather than random variables.</p>
+
+        <p class="durrett-question"><strong>Current intuition:</strong> \(B_\varepsilon\subseteq A_\varepsilon\). If the limiting upper error is strictly above \(\varepsilon\), the error must exceed \(\varepsilon\) infinitely often. This is pointwise reasoning in \(\omega\), not uniform convergence. Equality can fail because of the strict threshold at \(\varepsilon\).</p>
+
+        <p class="durrett-question"><strong>Why care?</strong> \(A_\varepsilon\) is an infinitely-often event relevant to Borel–Cantelli (Durrett, Section 2.3); \(Z\) describes the asymptotic size of the error, and \(Y_n\to Y\) a.s. iff \(\mathbb P(Z=0)=1\).</p>
+
+        <p class="durrett-question"><strong>To revisit:</strong> prove the inclusion from the definitions; find a case where it is strict; inspect the boundary \(\limsup_n|Y_n-Y|=\varepsilon\); connect both descriptions rigorously with almost-sure convergence and Borel–Cantelli.</p>
+      </li>
+      <li class="durrett-item">
         <h3>\(EX&lt;\infty \iff E|X|&lt;\infty\)</h3>
         <time datetime="2026-11-04">November 4, 2026</time>
 
