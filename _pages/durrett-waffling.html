@@ -89,6 +89,43 @@ author_profile: true
     <h2 id="durrett-unresolved">To do</h2>
     <ul class="durrett-list">
       <li class="durrett-item">
+        <h3>\(EX&lt;\infty \iff E|X|&lt;\infty\)</h3>
+        <time datetime="2026-11-04">November 4, 2026</time>
+
+        <p class="durrett-question">I tend to interpret \(E[.]\) as some kind of limit, as we used lesbesgue integration, and lesbesgue integration is built from limits of simple functions so functional limits to be precise. so say \(n\) and the limit of \(n\) as \(n\) to positive infty is \(\lim_{n\to \infty} n=+\infty\) so NOT converge then</p>
+
+        <div class="durrett-question">
+          \[
+          \lim_{n\to \infty} n-n=0\neq \lim_{n\to \infty} n-\lim_{n\to\infty}n=\infty-\infty
+          \]
+        </div>
+
+        <p class="durrett-question">where RHS not converge so of course</p>
+
+        <div class="durrett-question">
+          \[
+          \lim (n-n)&lt;\infty \centernot\implies \lim n &lt;\infty
+          \]
+        </div>
+
+        <p class="durrett-question">so then at a very intuitively level, why does</p>
+
+        <div class="durrett-question">
+          \[
+          E[X]=EX^+ -EX^-&lt;\infty\implies EX^+&lt;\infty \land EX^-&lt;\infty?
+          \]
+        </div>
+
+        <p class="durrett-question">the question above is formulated in a very vague and intuitively (wrong) level, let us try to be detailed:</p>
+        <ul>
+          <li>recall algebra of limits require each individual limit to be well-defined to have \(\lim (a_n+b_n)=\lim a_n +\lim b_n\) that s one thing should ALWAYS keep in mind</li>
+        </ul>
+
+        <p class="durrett-question">\(\text{Var}(X)=E[X^2]-(E[X])^2\leq E[X^2]\) so is this minus thing true even if some plus negative infty is existent? need to be very careful with this minus sign occuring</p>
+
+        <p class="durrett-question">need to clarify to oneself and be absolutely sure how higher moments bound lower ones</p>
+      </li>
+      <li class="durrett-item">
         <h3>Exercise 2.4.2 (p. 69) — Mutual independence</h3>
         <time datetime="2026-11-01">November 1, 2026</time>
         <p class="durrett-question">Show \(\sigma(Y_1,\ldots,Y_n)\subseteq\sigma(X_1,\ldots,X_n)\), then deduce mutual independence of \(Y_n=X_n/|X_{n-1}|\).</p>
