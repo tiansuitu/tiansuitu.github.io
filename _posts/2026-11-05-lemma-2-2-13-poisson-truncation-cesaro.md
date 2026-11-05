@@ -46,68 +46,68 @@ $$
 
 *Notation correction only: the sums in these two integrals need integer lower bounds, $\lfloor y\rfloor+1$ and $\lceil y\rceil$, rather than $y+1$ and $y$. In the bullet points, the $\max\{0,\cdot\}$ keeps the Poisson support correct also when $y<0$.*
 
-This is going from WLLN triangular arrays to NO moment assumptions but with $xP(|X_i|>x)\to 0$
+This is going from WLLN triangular arrays to NO moment assumptions but with $xP(\lvert X_i\rvert>x)\to 0$
 
-Filling in the details, starting from p.55, note that Lemma 2.2.13 only applies for nonnegative random variables like $|\bar X_{n,1}|$, and in this case $p=2$:
-
-$$
-E[\bar X_{n,1}^2]=E[|\bar X_{n,1}|^2]
-=\int_0^\infty 2y P(|X_{1} \mathbf{1}\{|X_{1}|\leq n\}|> y) dy
-$$
+Filling in the details, starting from p.55, note that Lemma 2.2.13 only applies for nonnegative random variables like $\lvert\bar X_{n,1}\rvert$, and in this case $p=2$:
 
 $$
-=\int_0^n 2y P(|X_{1}| \mathbf{1}\{|X_{1}|\leq n\}> y)dy
+E[\bar X_{n,1}^2]=E[\lvert\bar X_{n,1}\rvert^2]
+=\int_0^\infty 2y P(\lvert X_{1} \mathbf{1}\{\lvert X_{1}\rvert\leq n\}\rvert> y) dy
+$$
+
+$$
+=\int_0^n 2y P(\lvert X_{1}\rvert \mathbf{1}\{\lvert X_{1}\rvert\leq n\}> y)dy
 +
-\int_n^{+\infty} 2y P(|X_{1}| \mathbf{1}\{|X_{1}|\leq n\}> y)dy
+\int_n^{+\infty} 2y P(\lvert X_{1}\rvert \mathbf{1}\{\lvert X_{1}\rvert\leq n\}> y)dy
 $$
 
 $$
 =
-\int_0^n 2y P(\{|X_{1}| \mathbf{1}\{|X_{1}|\leq n\}> y\}\cap\{|X_{1}|\leq n\})dy
+\int_0^n 2y P(\{\lvert X_{1}\rvert \mathbf{1}\{\lvert X_{1}\rvert\leq n\}> y\}\cap\{\lvert X_{1}\rvert\leq n\})dy
 +
-\int_0^n 2y P(\{|X_{1}| \mathbf{1}\{|X_{1}|\leq n\}> y\}\cap\{|X_{1}|> n\})dy
+\int_0^n 2y P(\{\lvert X_{1}\rvert \mathbf{1}\{\lvert X_{1}\rvert\leq n\}> y\}\cap\{\lvert X_{1}\rvert> n\})dy
 $$
 
 $$
 =
-\int_0^n 2y P(\{|X_{1}|> y\}\cap\{|X_{1}|\leq n\})dy
+\int_0^n 2y P(\{\lvert X_{1}\rvert> y\}\cap\{\lvert X_{1}\rvert\leq n\})dy
 +
-\int_0^n 2y P(\{0> y\}\cap\{|X_{1}|> n\})dy
+\int_0^n 2y P(\{0> y\}\cap\{\lvert X_{1}\rvert> n\})dy
 $$
 
 $$
 =
-\int_0^n 2y P(y< |X_{1}|\leq n)dy
+\int_0^n 2y P(y< \lvert X_{1}\rvert\leq n)dy
 +
 0
 $$
 
 $$
 =
-\int_0^n 2y[P(|X_{1}|> y)-P(|X_1|>n)]dy
+\int_0^n 2y[P(\lvert X_{1}\rvert> y)-P(\lvert X_1\rvert>n)]dy
 $$
 
 $$
 \leq
-\int_0^n 2yP(|X_{1}|> y)dy
+\int_0^n 2yP(\lvert X_{1}\rvert> y)dy
 $$
 
 It is claimed that
 
 $$
-y\to \infty\implies yP(|X_1|>y) \to 0
+y\to \infty\implies yP(\lvert X_1\rvert>y) \to 0
 $$
 
 implies
 
 $$
-\frac{1}{n}\int_0^n 2yP(|X_1|>y)dy \to 0
+\frac{1}{n}\int_0^n 2yP(\lvert X_1\rvert>y)dy \to 0
 $$
 
 so the intuition in the book is that as $y\to\infty$,
 
 $$
-g(y):= 2yP(|X_1|>y)\to 0
+g(y):= 2yP(\lvert X_1\rvert>y)\to 0
 $$
 
 so then $1/n$ at front is like averaging the $g(y)$ over $[0,n]$. But to me this does not clearly explains why INTEGRATING something going to zero as $n\to +\infty$ (so domain for which integrates is enlarging) will lead to zero, as the area itself for finite $y$ is non zero and included when integrating from $0$ to $n\to \infty$.
