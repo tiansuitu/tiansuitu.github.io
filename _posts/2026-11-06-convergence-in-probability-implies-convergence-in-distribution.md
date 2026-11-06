@@ -32,7 +32,7 @@ Let $X_n,X$ be real-valued random variables on the same probability space $(\Ome
 
 $$
 \forall\,\varepsilon>0,\qquad
-p_{n,\varepsilon}:=\mathbb P(|X_n-X|>\varepsilon)
+p_{n,\varepsilon}:=\mathbb P(\lvert X_n-X\rvert>\varepsilon)
 \longrightarrow 0
 \quad(n\to\infty).
 $$
@@ -50,7 +50,7 @@ Fix such a $t$ and fix $\varepsilon>0$. Define the events
 $$
 \begin{aligned}
 A_n &:= \{X_n\le t\},\\
-B_{n,\varepsilon} &:= \{|X_n-X|>\varepsilon\},\\
+B_{n,\varepsilon} &:= \{\lvert X_n-X\rvert>\varepsilon\},\\
 C^-_\varepsilon &:= \{X\le t-\varepsilon\},\\
 C^+_\varepsilon &:= \{X\le t+\varepsilon\}.
 \end{aligned}
@@ -72,7 +72,7 @@ $$
 \end{aligned}
 $$
 
-If $X_n\le t$ and $|X_n-X|\le\varepsilon$, then
+If $X_n\le t$ and $\lvert X_n-X\rvert\le\varepsilon$, then
 
 $$
 X\le X_n+\varepsilon\le t+\varepsilon.
@@ -93,7 +93,7 @@ F_n(t)\le F_X(t+\varepsilon)+p_{n,\varepsilon}.
 }
 $$
 
-This is an inclusion, **not an equality of events**: the condition $X\le X_n+\varepsilon$ alone does not imply $|X_n-X|\le\varepsilon$.
+This is an inclusion, **not an equality of events**: the condition $X\le X_n+\varepsilon$ alone does not imply $\lvert X_n-X\rvert\le\varepsilon$.
 
 ## 2. The lower bound: work backwards from $X$
 
@@ -103,7 +103,7 @@ $$
 C^-_\varepsilon=\{X\le t-\varepsilon\}.
 $$
 
-Whenever $X\le t-\varepsilon$ and $|X_n-X|\le\varepsilon$,
+Whenever $X\le t-\varepsilon$ and $\lvert X_n-X\rvert\le\varepsilon$,
 
 $$
 X_n\le X+\varepsilon\le t.
@@ -262,7 +262,7 @@ $$
 \begin{gathered}
 \text{convergence in probability}\\
 \Downarrow\\
-\text{vanishing bad event } \{|X_n-X|>\varepsilon\}\\
+\text{vanishing bad event } \{\lvert X_n-X\rvert>\varepsilon\}\\
 \Downarrow\\
 F_X(t-\varepsilon)-p_{n,\varepsilon}
 \le F_n(t)
