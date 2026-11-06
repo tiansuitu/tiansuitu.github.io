@@ -13,109 +13,120 @@ excerpt: "Working notes on applying Durrett's tail-integral lemma to discrete di
 
 ## Lemma 2.2.13
 
-Note that Lemma 2.2.13, although using integration, it holds true for discrete (non-negative) random variables $Y$: Suppose $Y$ is $Po(\lambda)$, then
-
-- $\forall y\in \mathbb R, P(Y>y)=\displaystyle\sum_{x=\max\{0,\lfloor y \rfloor+1\}}^\infty\frac{e^{-\lambda}\lambda^x}{x!}$
-- $\forall y\in \mathbb R, P(Y\geq y)=\displaystyle\sum_{x=\max\{0,\lceil y \rceil\}}^\infty\frac{e^{-\lambda}\lambda^x}{x!}$
+Although Lemma 2.2.13 is expressed as an integral, it also applies to nonnegative discrete random variables. For example, suppose $Y\sim\operatorname{Poisson}(\lambda)$. For every $y\in\mathbb R$,
 
 $$
-\int_0^\infty py^{p-1}
-\sum_{x=\lfloor y\rfloor +1}^\infty\frac{e^{-\lambda}\lambda^x}{x!}
-dy
+\begin{aligned}
+\mathbb P(Y>y)
+  &= \sum_{x=\max\{0,\lfloor y\rfloor+1\}}^\infty
+       \frac{e^{-\lambda}\lambda^x}{x!},\\[6pt]
+\mathbb P(Y\ge y)
+  &= \sum_{x=\max\{0,\lceil y\rceil\}}^\infty
+       \frac{e^{-\lambda}\lambda^x}{x!}.
+\end{aligned}
 $$
 
----
+In particular, for $p>0$,
 
 $$
-\int_0^\infty py^{p-1} P(Y>y)dy
-=
-\int_0^\infty py^{p-1}
-\sum_{x=\lfloor y\rfloor+1}^\infty\frac{e^{-\lambda}\lambda^x}{x!}
-dy
+\begin{aligned}
+\mathbb E[Y^p]
+  &= \int_0^\infty p y^{p-1}\,\mathbb P(Y>y)\,\mathrm{d}y\\
+  &= \int_0^\infty p y^{p-1}
+     \left(\sum_{x=\lfloor y\rfloor+1}^\infty
+       \frac{e^{-\lambda}\lambda^x}{x!}\right)\,\mathrm{d}y.
+\end{aligned}
 $$
 
-$$
-\int_0^\infty py^{p-1} P(Y\geq y)dy
-=
-\int_0^\infty py^{p-1}
-\sum_{x=\lceil y\rceil}^\infty\frac{e^{-\lambda}\lambda^x}{x!}
-dy
-$$
-
-(Lesbesgue) integration (with Lesbesgue measure so $dy$)... WIP
-
-*Notation correction only: the sums in these two integrals need integer lower bounds, $\lfloor y\rfloor+1$ and $\lceil y\rceil$, rather than $y+1$ and $y$. In the bullet points, the $\max\{0,\cdot\}$ keeps the Poisson support correct also when $y<0$.*
-
-This is going from WLLN triangular arrays to NO moment assumptions but with $xP(\lvert X_i\rvert>x)\to 0$
-
-Filling in the details, starting from p.55, note that Lemma 2.2.13 only applies for nonnegative random variables like $\lvert\bar X_{n,1}\rvert$, and in this case $p=2$:
+Alternatively, writing the integrand with $\mathbb P(Y\ge y)$ gives the same integral, since the two tails differ only at integer values of $y$:
 
 $$
-E[\bar X_{n,1}^2]=E[\lvert\bar X_{n,1}\rvert^2]
-=\int_0^\infty 2y P(\lvert X_{1} \mathbf{1}\{\lvert X_{1}\rvert\leq n\}\rvert> y) dy
+\begin{aligned}
+\mathbb E[Y^p]
+  &= \int_0^\infty p y^{p-1}\,\mathbb P(Y\ge y)\,\mathrm{d}y\\
+  &= \int_0^\infty p y^{p-1}
+     \left(\sum_{x=\lceil y\rceil}^\infty
+       \frac{e^{-\lambda}\lambda^x}{x!}\right)\,\mathrm{d}y.
+\end{aligned}
 $$
 
-$$
-=\int_0^n 2y P(\lvert X_{1}\rvert \mathbf{1}\{\lvert X_{1}\rvert\leq n\}> y)dy
-+
-\int_n^{+\infty} 2y P(\lvert X_{1}\rvert \mathbf{1}\{\lvert X_{1}\rvert\leq n\}> y)dy
-$$
+Here $\mathrm{d}y$ denotes integration with respect to Lebesgue measure. **WIP.**
+
+*Notation: the summation bounds must be integers, namely $\lfloor y\rfloor+1$ and $\lceil y\rceil$. In the two tail-probability formulas, $\max\{0,\cdot\}$ also accounts for $y<0$.*
+
+## Truncation and the weak law
+
+This is the step from the triangular-array WLLN to a weak law without a moment assumption, under the tail condition $x\,\mathbb P(|X_1|>x)\to0$ as $x\to\infty$.
+
+Filling in the details (starting from p. 55), let
 
 $$
-=
-\int_0^n 2y P(\{\lvert X_{1}\rvert \mathbf{1}\{\lvert X_{1}\rvert\leq n\}> y\}\cap\{\lvert X_{1}\rvert\leq n\})dy
-+
-\int_0^n 2y P(\{\lvert X_{1}\rvert \mathbf{1}\{\lvert X_{1}\rvert\leq n\}> y\}\cap\{\lvert X_{1}\rvert> n\})dy
+A_n=\{|X_1|\le n\},
+\qquad
+\bar X_{n,1}=X_1\mathbf 1_{A_n}.
 $$
 
-$$
-=
-\int_0^n 2y P(\{\lvert X_{1}\rvert> y\}\cap\{\lvert X_{1}\rvert\leq n\})dy
-+
-\int_0^n 2y P(\{0> y\}\cap\{\lvert X_{1}\rvert> n\})dy
-$$
+Lemma 2.2.13 applies to the nonnegative random variable $|\bar X_{n,1}|$ with $p=2$. Since $|\bar X_{n,1}|\le n$, the tail integrand vanishes for $y\ge n$, giving
 
 $$
-=
-\int_0^n 2y P(y< \lvert X_{1}\rvert\leq n)dy
-+
-0
+\begin{aligned}
+\mathbb E[\bar X_{n,1}^{\,2}]
+  &= \mathbb E[|\bar X_{n,1}|^2]\\
+  &= \int_0^\infty
+       2y\,\mathbb P(|\bar X_{n,1}|>y)\,\mathrm{d}y\\
+  &= \int_0^n
+       2y\,\mathbb P(|X_1|\mathbf 1_{A_n}>y)\,\mathrm{d}y.
+\end{aligned}
 $$
 
-$$
-=
-\int_0^n 2y[P(\lvert X_{1}\rvert> y)-P(\lvert X_1\rvert>n)]dy
-$$
+For $0<y<n$, partitioning the event according to $A_n$ and $A_n^c$ yields
 
 $$
-\leq
-\int_0^n 2yP(\lvert X_{1}\rvert> y)dy
+\begin{aligned}
+&\mathbb P(|X_1|\mathbf 1_{A_n}>y)\\
+&\quad= \mathbb P(\{|X_1|\mathbf 1_{A_n}>y\}\cap A_n)
+       +\mathbb P(\{|X_1|\mathbf 1_{A_n}>y\}\cap A_n^c)\\
+&\quad= \mathbb P(y<|X_1|\le n)
+       +\mathbb P(0>y,\ |X_1|>n)\\
+&\quad= \mathbb P(|X_1|>y)-\mathbb P(|X_1|>n).
+\end{aligned}
 $$
 
-It is claimed that
+Consequently,
 
 $$
-y\to \infty\implies yP(\lvert X_1\rvert>y) \to 0
+\begin{aligned}
+\mathbb E[\bar X_{n,1}^{\,2}]
+  &= \int_0^n 2y\,
+     \bigl[\mathbb P(|X_1|>y)-\mathbb P(|X_1|>n)\bigr]\,\mathrm{d}y\\
+  &\le \int_0^n 2y\,\mathbb P(|X_1|>y)\,\mathrm{d}y.
+\end{aligned}
+$$
+
+## Continuous Cesàro means
+
+The claim is that the tail condition
+
+$$
+y\,\mathbb P(|X_1|>y)\longrightarrow0
+\qquad (y\to\infty)
 $$
 
 implies
 
 $$
-\frac{1}{n}\int_0^n 2yP(\lvert X_1\rvert>y)dy \to 0
+\frac1n\int_0^n 2y\,\mathbb P(|X_1|>y)\,\mathrm{d}y
+\longrightarrow0.
 $$
 
-so the intuition in the book is that as $y\to\infty$,
+Durrett's intuition is to put $g(y):=2y\,\mathbb P(|X_1|>y)$, so that $g(y)\to0$ as $y\to\infty$, and regard $n^{-1}\int_0^n g(y)\,\mathrm{d}y$ as an average over $[0,n]$.
 
-$$
-g(y):= 2yP(\lvert X_1\rvert>y)\to 0
-$$
-
-so then $1/n$ at front is like averaging the $g(y)$ over $[0,n]$. But to me this does not clearly explains why INTEGRATING something going to zero as $n\to +\infty$ (so domain for which integrates is enlarging) will lead to zero, as the area itself for finite $y$ is non zero and included when integrating from $0$ to $n\to \infty$.
+What was not immediately clear to me is why averaging a function over an expanding interval forces the result to zero: the integral still includes the initial finite interval, on which $g$ need not vanish.
 
 | Discrete Cesàro mean | Continuous Cesàro mean |
 |---|---|
 | $a_n\to0$ | $g(y)\to0$ as $y\to\infty$ |
-| $\displaystyle \frac1n\sum_{k=1}^n a_k\to0$ | $\displaystyle\frac1n\int_0^n g(y)\,dy\to0$ |
+| $\displaystyle\frac1n\sum_{k=1}^n a_k\to0$ | $\displaystyle\frac1n\int_0^n g(y)\,\mathrm{d}y\to0$ |
 
 Both rely on the same idea: the finite initial part becomes negligible after normalization, while the remaining terms are uniformly small.
 
