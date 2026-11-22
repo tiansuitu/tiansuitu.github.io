@@ -71,18 +71,20 @@ author_profile: true
   <section aria-labelledby="durrett-reading">
     <h2 id="durrett-reading">Reading notes</h2>
     {% assign durrett_posts = site.tags["durrett-waffling"] | sort: "date" | reverse %}
-    {% if durrett_posts and durrett_posts.size > 0 %}
-      <ul class="durrett-list">
-        {% for post in durrett_posts %}
+    <ul class="durrett-list">
+      <li class="durrett-item">
+        <h3><a href="{{ '/durrett-waffling/independence-and-subcollections/' | relative_url }}">Independence and the Hidden Sub-Index Condition</a></h3>
+        <time datetime="2026-11-23">November 23, 2026</time>
+      </li>
+      {% for post in durrett_posts %}
+        {% unless post.url == '/durrett-waffling/independence-and-subcollections/' %}
           <li class="durrett-item">
             <h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
             <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%B %d, %Y" }}</time>
           </li>
-        {% endfor %}
-      </ul>
-    {% else %}
-      <p>No reading notes yet.</p>
-    {% endif %}
+        {% endunless %}
+      {% endfor %}
+    </ul>
   </section>
 
   <section aria-labelledby="durrett-unresolved">
