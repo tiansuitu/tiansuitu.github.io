@@ -64,3 +64,48 @@ The same issue occurs for **arbitrary collections of sets** $\mathcal A_i\subset
 **Takeaway.** There is no change in the meaning of independence as we move from sigma-fields to random variables to events. We always want independence of *every subcollection*; the only difference is whether we can encode omitted indices by choosing the whole space.
 
 *Reference: Durrett (5th ed.), §2.1, Theorems 2.1.1–2.1.3 and Lemma 2.1.5.*
+
+## An equivalent, more parallel formulation
+
+Durrett (5th ed., pp. 38–39) states independence of both **events** and **collections of events** using every sub-index set $I\subseteq\{1,\ldots,n\}$. This initially looks different from the full-index definitions for sigma-fields and random variables. But the difference is not substantive: as in the $B_i$ notation described in Fang's notes, we can write both definitions in a parallel full-index form.
+
+**1. Independence of events.** Events $A_1,\ldots,A_n\in\mathcal F$ are independent **if and only if**
+
+$$
+\boxed{
+\mathbb P\left(\bigcap_{i=1}^n B_i\right)
+=\prod_{i=1}^n\mathbb P(B_i)
+\qquad
+\text{for every choice }B_i\in\{A_i,\Omega\}.
+}
+$$
+
+Indeed, for any $I\subseteq\{1,\ldots,n\}$, choose $B_i=A_i$ when $i\in I$ and $B_i=\Omega$ otherwise. Since intersection with $\Omega$ changes nothing and $\mathbb P(\Omega)=1$, this is exactly Durrett's sub-index condition:
+
+$$
+\mathbb P\left(\bigcap_{i\in I}A_i\right)
+=\prod_{i\in I}\mathbb P(A_i).
+$$
+
+**2. Independence of collections of events.** Let $\mathcal A_1,\ldots,\mathcal A_n\subseteq\mathcal F$ be arbitrary collections, and put $\overline{\mathcal A}_i=\mathcal A_i\cup\{\Omega\}$. These collections are independent **if and only if**
+
+$$
+\boxed{
+\mathbb P\left(\bigcap_{i=1}^n B_i\right)
+=\prod_{i=1}^n\mathbb P(B_i)
+\qquad
+\text{for every choice }B_i\in\mathcal A_i\cup\{\Omega\}.
+}
+$$
+
+In other words, at each index we may select an event from the original collection $\mathcal A_i$, **or** select $\Omega$ to omit that index. This is equivalent to requiring, for every $I\subseteq\{1,\ldots,n\}$ and every choice $A_i\in\mathcal A_i$ for $i\in I$,
+
+$$
+\mathbb P\left(\bigcap_{i\in I}A_i\right)
+=\prod_{i\in I}\mathbb P(A_i).
+$$
+
+Thus the two boxed definitions have precisely the same structure. In the second, we are choosing an event from each *collection*, rather than starting with one prescribed event at each index. This is also the content of Durrett's **Lemma 2.1.5**: adjoining $\Omega$ makes the sub-index requirement implicit in a full-index formula, just as it already is for sigma-fields and random variables.
+
+*Reference: Durrett, 5th ed., pp. 38–39 (definitions of independence and Lemma 2.1.5).*
+
