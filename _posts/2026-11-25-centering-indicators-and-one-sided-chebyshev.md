@@ -140,3 +140,111 @@ In our example, take $V=\mathbf 1_A$. Its best constant approximation is $p$, an
 **Takeaway.** Centring is not just an algebraic trick. It removes the component in the direction of the constants, which contributes nothing to an inner product with a mean-zero random variable. This makes the Cauchy–Schwarz bound as small as possible within this family of constant shifts.
 
 *References: Durrett, Probability: Theory and Examples (5th ed.), Exercise 1.6.4(ii) and Chapter 4 (conditional expectation). The Cauchy–Schwarz argument here is an alternative to the shift-and-optimise approach suggested in the exercise.*
+
+## Application: STAT5005 Final 2021, Question 5
+
+*Update, 25 November 2026: the following argument is based on my handwritten solution developed during the revision session, transcribed and edited by ChatGPT for clarity.*
+
+Let $X_1,X_2,\ldots$ be independent real-valued random variables on $(\Omega,\mathcal F,\mathbb P)$, with $\mathbb E[X_i]=0$ and $\mathbb E[X_i^2]<\infty$ for every $i$. Write $S_k=\sum_{i=1}^k X_i$. For every $a>0$ and $n\geq 1$, we wish to prove
+
+$$
+\boxed{
+\mathbb P\left(\max_{1\leq k\leq n}S_k\geq a\right)
+\leq\frac{\mathbb E[S_n^2]}{a^2+\mathbb E[S_n^2]}.
+}
+$$
+
+The idea is to combine the first-crossing decomposition from Kolmogorov's maximal inequality (Durrett, Theorem 2.5.5) with the centred-indicator proof of one-sided Chebyshev above.
+
+### Step 1. First-crossing events
+
+For $1\leq k\leq n$, define
+
+$$
+A_k=\{S_k\geq a\}\cap\bigcap_{j=1}^{k-1}\{S_j<a\},
+\qquad
+A=\bigcup_{k=1}^n A_k.
+$$
+
+The empty intersection for $k=1$ is understood to be $\Omega$. The events $A_k$ are pairwise disjoint, and $A=\{\max_{1\leq k\leq n}S_k\geq a\}$. Set $p_k=\mathbb P(A_k)$ and $p=\mathbb P(A)=\sum_{k=1}^n p_k$.
+
+Since $S_k\mathbf 1_{A_k}\geq a\mathbf 1_{A_k}$, monotonicity and linearity of expectation give
+
+$$
+ap=\sum_{k=1}^n\mathbb E[a\mathbf 1_{A_k}]
+\leq\sum_{k=1}^n\mathbb E[S_k\mathbf 1_{A_k}].
+$$
+
+### Step 2. Convert the partial sums to the terminal sum
+
+This is the key step. Write
+
+$$
+S_n=S_k+T_k,\qquad T_k=\sum_{i=k+1}^n X_i.
+$$
+
+For $k<n$, the indicator $\mathbf 1_{A_k}$ is measurable with respect to $\sigma(X_1,\ldots,X_k)$, whereas $T_k$ is measurable with respect to $\sigma(X_{k+1},\ldots,X_n)$. These sigma-fields are independent by mutual independence of the $X_i$. Since $T_k$ is integrable and centred,
+
+$$
+\mathbb E[T_k\mathbf 1_{A_k}]
+=\mathbb E[T_k]\mathbb P(A_k)=0.
+$$
+
+For $k=n$, the same identity holds since $T_n=0$. Thus
+
+$$
+\mathbb E[S_k\mathbf 1_{A_k}]
+=\mathbb E[S_n\mathbf 1_{A_k}].
+$$
+
+All expectations are finite because the finite partial sums are in $L^2(\mathbb P)$ and the indicators are bounded. By disjointness, $\sum_{k=1}^n\mathbf 1_{A_k}=\mathbf 1_A$ pointwise. Consequently,
+
+$$
+\begin{aligned}
+ap
+&\leq\sum_{k=1}^n\mathbb E[S_k\mathbf 1_{A_k}]\\
+&=\sum_{k=1}^n\mathbb E[S_n\mathbf 1_{A_k}]\\
+&=\mathbb E[S_n\mathbf 1_A].
+\end{aligned}
+$$
+
+### Step 3. Centre the combined indicator and apply Cauchy–Schwarz
+
+Since $\mathbb E[S_n]=0$, we can centre the indicator without changing the expected product. Applying Cauchy–Schwarz,
+
+$$
+\begin{aligned}
+ap
+&\leq\mathbb E[S_n\mathbf 1_A]\\
+&=\mathbb E[S_n(\mathbf 1_A-p)]\\
+&\leq\sqrt{\mathbb E[S_n^2]\mathbb E[(\mathbf 1_A-p)^2]}\\
+&=\sqrt{\mathbb E[S_n^2]p(1-p)}.
+\end{aligned}
+$$
+
+Both sides of the resulting inequality are nonnegative, so squaring gives
+
+$$
+a^2p^2\leq\mathbb E[S_n^2]p(1-p).
+$$
+
+If $p=0$, the desired result is immediate. Otherwise $p>0$, and division by $p$ followed by rearrangement yields
+
+$$
+\begin{aligned}
+a^2p&\leq\mathbb E[S_n^2](1-p),\\
+p(a^2+\mathbb E[S_n^2])&\leq\mathbb E[S_n^2].
+\end{aligned}
+$$
+
+Since $a>0$, the denominator is strictly positive. Substituting the definition of $p$ proves the claimed inequality.
+
+**A small point of rigour:** there is no need to show that every $p_k>0$. Indeed, some or all of the first-crossing events may have probability zero. Only the total probability $p$ is divided out, after treating the case $p=0$ separately.
+
+### What to remember
+
+The future independent centred increments contribute zero to the first moment on a past-measurable event, so the first-moment comparison is an equality. This differs from the second-moment comparison in Kolmogorov's maximal inequality, where the future increments contribute a nonnegative squared term.
+
+The crucial move is to convert the different $S_k$ into the same terminal variable $S_n$ **before** applying Cauchy–Schwarz. This lets us combine the disjoint first-crossing events and centre a single indicator of the entire maximal event. Its variance is $p(1-p)$, which produces the sharper denominator.
+
+The two ideas — first-crossing decomposition and optimal centring in $L^2$ — therefore fit together directly.
