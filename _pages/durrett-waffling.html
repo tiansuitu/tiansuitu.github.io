@@ -73,6 +73,10 @@ author_profile: true
     {% assign durrett_posts = site.tags["durrett-waffling"] | sort: "date" | reverse %}
     <ul class="durrett-list">
       <li class="durrett-item">
+        <h3><a href="{{ '/durrett-waffling/centering-indicators-and-one-sided-chebyshev/' | relative_url }}">Centring Indicator Functions: One-Sided Chebyshev and L2 Projection</a></h3>
+        <time datetime="2026-11-25">November 25, 2026</time>
+      </li>
+      <li class="durrett-item">
         <h3><a href="{{ '/durrett-waffling/generated-sigma-fields-to-independence/' | relative_url }}">From Generated Sigma-Fields to Independence: An Active Recall Note</a></h3>
         <time datetime="2026-11-23">November 23, 2026</time>
       </li>
@@ -81,7 +85,7 @@ author_profile: true
         <time datetime="2026-11-23">November 23, 2026</time>
       </li>
       {% for post in durrett_posts %}
-        {% unless post.url == '/durrett-waffling/independence-and-subcollections/' or post.url == '/durrett-waffling/generated-sigma-fields-to-independence/' %}
+        {% unless post.url == '/durrett-waffling/centering-indicators-and-one-sided-chebyshev/' or post.url == '/durrett-waffling/independence-and-subcollections/' or post.url == '/durrett-waffling/generated-sigma-fields-to-independence/' %}
           <li class="durrett-item">
             <h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
             <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%B %d, %Y" }}</time>
