@@ -155,10 +155,10 @@ Here $\omega$ is a single real number, not a sequence. Every $A_n$ tests the sam
 
 If $\omega=0$, then $\omega\in A_n$ for every $n$, so it belongs to both limiting sets.
 
-If $\omega\neq0$, choose an integer $N>1/|\omega|$. For every $n\geq N$,
+If $\omega\neq0$, choose an integer $N>1/\lvert \omega\rvert$. For every $n\geq N$,
 
 $$
-\frac1n\leq\frac1N<|\omega|.
+\frac1n\leq\frac1N<\lvert\omega\rvert.
 $$
 
 Thus $\omega\notin A_n$ for all $n\geq N$. It cannot belong to the limsup, and consequently cannot belong to the liminf either. Therefore
@@ -183,7 +183,7 @@ An outcome is now a sequence $\omega=(\omega_1,\omega_2,\ldots)$. Let $\pi_n:\Om
 
 $$
 A_n:=\pi_n^{-1}\left(\left(-\frac1n,\frac1n\right)\right)
-=\left\{\omega\in\Omega:|\omega_n|<\frac1n\right\}.
+=\left\{\omega\in\Omega:\lvert\omega_n\rvert<\frac1n\right\}.
 $$
 
 In the first example, the same real number was tested at every index. Here we test a potentially different coordinate at each index. The outcome $\omega$ itself is still fixed; it is its coordinates that vary.
@@ -193,20 +193,20 @@ The two limiting events are now
 $$
 \limsup_n A_n
 =\left\{\omega:\forall N\geq1,\ \exists n\geq N,\
-|\omega_n|<\frac1n\right\},
+\lvert\omega_n\rvert<\frac1n\right\},
 $$
 
 $$
 \liminf_n A_n
 =\left\{\omega:\exists N\geq1,\ \forall n\geq N,\
-|\omega_n|<\frac1n\right\}.
+\lvert\omega_n\rvert<\frac1n\right\}.
 $$
 
 Unlike the intervals in the previous example, these cylinder events are not nested. They constrain different coordinates. The limiting sets are no longer just the singleton containing the zero sequence.
 
 ### Example A: a sequence that hits the shrinking interval every time
 
-Let $\omega_n=1/(2n)$. Then $|\omega_n|<1/n$ for every $n\geq1$, so
+Let $\omega_n=1/(2n)$. Then $\lvert \omega_n\rvert<1/n$ for every $n\geq1$, so
 
 $$
 \omega\in\liminf_n A_n\subseteq\limsup_n A_n.
@@ -219,7 +219,7 @@ The same conclusion holds for $\omega_n=1/n^2$, except that at $n=1$ the strict 
 Let $\omega_n=1/\sqrt n$. Although $\omega_n\to0$, we have
 
 $$
-|\omega_n|=\frac1{\sqrt n}\geq\frac1n
+\lvert\omega_n\rvert=\frac1{\sqrt n}\geq\frac1n
 \qquad\text{for every }n\geq1.
 $$
 
@@ -245,21 +245,21 @@ $$
 
 The sequence does not converge at all. This corrects the tempting interpretation that the limsup consists of sequences converging sufficiently quickly to zero. It only requires the sequence to hit the shrinking interval at infinitely many indices.
 
-In fact, membership in the limsup implies that some subsequence converges to zero: choose increasing indices $n_k$ satisfying $|\omega_{n_k}|<1/n_k$. But the converse fails, as Example B demonstrates.
+In fact, membership in the limsup implies that some subsequence converges to zero: choose increasing indices $n_k$ satisfying $\lvert \omega_{n_k}\rvert<1/n_k$. But the converse fails, as Example B demonstrates.
 
 ## 6. Does membership in the liminf imply convergence?
 
 Yes. Suppose $\omega\in\liminf_n A_n$. By definition there exists $N_0$ such that
 
 $$
-|\omega_n|<\frac1n
+\lvert\omega_n\rvert<\frac1n
 \qquad\forall n\geq N_0.
 $$
 
 Fix any $\varepsilon>0$ and choose $N\geq N_0$ with $N>1/\varepsilon$. Then for every $n\geq N$,
 
 $$
-|\omega_n|<\frac1n\leq\frac1N<\varepsilon.
+\lvert\omega_n\rvert<\frac1n\leq\frac1N<\varepsilon.
 $$
 
 This is exactly the definition of $\omega_n\to0$. Thus
@@ -270,18 +270,13 @@ $$
 \{\omega\in\mathbb R^{\mathbb N}:\omega_n\to0\}.
 $$
 
-The inclusion is strict by Example B. Also, if $n|\omega_n|\to0$, then $\omega$ belongs to the liminf, but the converse is false: $\omega_n=1/(2n)$ belongs to every $A_n$ while $n|\omega_n|=1/2$. So even membership in the liminf should not be confused with the stronger rate condition $\omega_n=o(1/n)$.
+The inclusion is strict by Example B. Also, if $n\lvert \omega_n\rvert\to0$, then $\omega$ belongs to the liminf, but the converse is false: $\omega_n=1/(2n)$ belongs to every $A_n$ while $n\lvert \omega_n\rvert=1/2$. So even membership in the liminf should not be confused with the stronger rate condition $\omega_n=o(1/n)$.
 
 Putting the examples together:
 
-| Coordinates of $\omega$ | Converges to zero? | In $\limsup_n A_n$? | In $\liminf_n A_n$? |
-| :--- | :---: | :---: | :---: |
-| $0$ for every $n$ | Yes | Yes | Yes |
-| $1/(2n)$ | Yes | Yes | Yes |
-| $1/n^2$ | Yes | Yes | Yes |
-| $1/\sqrt n$ | Yes | No | No |
-| $1/n$ | Yes | No | No |
-| $0,1,0,1,\ldots$ | No | Yes | No |
+- The sequences $\omega_n=0$, $\omega_n=1/(2n)$ and $\omega_n=1/n^2$ converge to zero and belong to both limiting sets.
+- The sequences $\omega_n=1/\sqrt n$ and $\omega_n=1/n$ converge to zero but belong to neither limiting set.
+- The alternating sequence $\omega=(0,1,0,1,\ldots)$ does not converge and belongs to the limsup but not the liminf.
 
 If a probability measure is subsequently placed on this product space, and $X_n=\pi_n$ are its coordinate random variables, these are measurable events concerning the sample paths of $(X_n)$. Their probabilities depend on the chosen measure, but the pointwise conclusions above do not.
 
