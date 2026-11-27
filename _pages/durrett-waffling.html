@@ -80,7 +80,12 @@ author_profile: true
         <h3><a href="{{ '/durrett-waffling/what-does-infinitely-often-mean/' | relative_url }}">What Does an Event Occurring Infinitely Often Actually Mean?</a></h3>
         <time datetime="2026-11-27">November 27, 2026</time>
       </li>
+      <li class="durrett-item" id="three-limsup-comparisons">
+        <h3><a href="{{ '/durrett-waffling/three-limsup-comparisons/' | relative_url }}">Three ways to place limsup: random variables, events and probabilities</a></h3>
+        <time datetime="2026-11-04">November 4, 2026 (expanded November 27, 2026)</time>
+      </li>
       {% for post in durrett_posts %}
+        {% if post.url == '/durrett-waffling/three-limsup-comparisons/' %}{% continue %}{% endif %}
         {% if post.url == '/durrett-waffling/almost-everywhere-convergence-two-proofs/' %}{% continue %}{% endif %}
         {% if post.url == '/durrett-waffling/what-does-infinitely-often-mean/' %}{% continue %}{% endif %}
         <li class="durrett-item">
@@ -99,85 +104,6 @@ author_profile: true
         <time datetime="2026-11-07">November 7, 2026</time>
         <p class="durrett-question">Assume integer-valued random variables \(X_n\) and \(X_\infty\) satisfy \(\mathbb P(X_n=k)\to\mathbb P(X_\infty=k)\) for every \(k\in\mathbb Z\). Revisit the converse implication \(X_n\Rightarrow X_\infty\), this time without finite truncation or exchanging two limits.</p>
         <p class="durrett-question"><strong>To do:</strong> Interpret the sums over integers as integrals against counting measure; apply Fatou's lemma separately to \(\sum_{k\le x}\mathbb P(X_n=k)\) and \(\sum_{k>x}\mathbb P(X_n=k)\). Work out how the resulting bounds imply convergence of the distribution functions, checking each hypothesis and inequality.</p>
-      </li>
-      <li class="durrett-item" id="three-limsup-comparisons">
-        <h3>Three ways to place \(\limsup\): random variables, events and probabilities</h3>
-        <time datetime="2026-11-04">November 4, 2026 (expanded November 27, 2026)</time>
-
-        <p class="durrett-question"><strong>Motivation:</strong> Durrett, <em>Probability: Theory and Examples</em> (5th ed.), Exercise 3.4.2(a), p. 127. Let \(X_1,X_2,\ldots\) be i.i.d. with \(\mathbb E X_1=0\) and \(0&lt;\sigma^2=\operatorname{Var}(X_1)&lt;\infty\). Put \(S_n=X_1+\cdots+X_n\) and \(Y_n=S_n/\sqrt n\). The exercise asks us to use the central limit theorem and Kolmogorov's zero-one law to show that</p>
-        <div class="durrett-question">
-          \[
-          \limsup_{n\to\infty}Y_n=+\infty
-          \qquad\text{a.s.}
-          \]
-        </div>
-
-        <p class="durrett-question">The difficulty I want to remember is the distinction between taking a limsup of random variables, taking a limsup of events, and taking a limsup of their probabilities. These are not interchangeable operations.</p>
-
-        <p class="durrett-question"><strong>1. Event-level comparison.</strong> For any sequence of real-valued random variables \(Y_n\) and any fixed \(x\in\mathbb R\), consider the three events:</p>
-        <div class="durrett-question">
-          \[
-          \begin{aligned}
-          B_x&amp;=\{\omega:\limsup_n Y_n(\omega)&gt;x\},\\
-          A_x&amp;=\limsup_n\{Y_n&gt;x\},\\
-          C_x&amp;=\{\omega:\limsup_n Y_n(\omega)\geq x\}.
-          \end{aligned}
-          \]
-        </div>
-        <p class="durrett-question">Here \(A_x\) means that the threshold \(x\) is exceeded infinitely often along one fixed outcome. In \(B_x\) and \(C_x\), we first compute the numerical limsup along that outcome, then compare it with \(x\). The relationship is</p>
-        <div class="durrett-question">
-          \[
-          \boxed{B_x\subseteq A_x\subseteq C_x.}
-          \]
-        </div>
-        <p class="durrett-question">Both inclusions can be strict, even for deterministic random variables. If \(Y_n=x+1/n\), the threshold is exceeded at every index but the numerical limit equals \(x\). Thus \(A_x=\Omega\) and \(B_x=\varnothing\). If \(Y_n=x-1/n\), the threshold is never exceeded but the numerical limit is again \(x\). Thus \(C_x=\Omega\) and \(A_x=\varnothing\).</p>
-        <p class="durrett-question">The same sandwich holds if the middle event is \(\limsup_n\{Y_n\geq x\}\). The subtlety in all cases is the boundary where the numerical limsup equals \(x\).</p>
-
-        <p class="durrett-question"><strong>2. Probability-level comparison.</strong> Returning to the notation used for Exercise 3.4.2(a), define \(D_n=\{Y_n\geq x\}\). The three quantities I want to distinguish are</p>
-        <div class="durrett-question">
-          \[
-          \begin{aligned}
-          p_1(x)&amp;=\mathbb P(\limsup_n Y_n\geq x),\\
-          p_2(x)&amp;=\mathbb P(\limsup_n D_n),\\
-          p_3(x)&amp;=\limsup_n\mathbb P(D_n).
-          \end{aligned}
-          \]
-        </div>
-        <p class="durrett-question">The first is the probability of a statement about a numerical limsup. The second is the probability of infinitely many threshold crossings. The third is the limsup of a deterministic sequence of marginal probabilities. In particular, the third expression is not itself an event.</p>
-        <div class="durrett-question">
-          \[
-          \boxed{p_1(x)\geq p_2(x)\geq p_3(x).}
-          \]
-        </div>
-        <p class="durrett-question">The first inequality follows from the event-level inclusion \(\limsup_n D_n\subseteq\{\limsup_nY_n\geq x\}\) and monotonicity of probability. The second is exactly Durrett Exercise 2.3.1, p. 58:</p>
-        <div class="durrett-question">
-          \[
-          \mathbb P(\limsup_n D_n)
-          \geq\limsup_n\mathbb P(D_n).
-          \]
-        </div>
-        <p class="durrett-question">No independence is required for either comparison. They need not be equalities: \(Y_n=x-1/n\) gives \(p_1=1\) and \(p_2=0\). For independent Bernoulli random variables \(Y_n\) with parameter \(1/2\) and \(x=1\), the second Borel–Cantelli lemma gives \(p_2=1\), whereas \(p_3=1/2\).</p>
-
-        <p class="durrett-question"><strong>Why useful in Exercise 3.4.2(a)?</strong> The CLT gives \(Y_n\Rightarrow N(0,\sigma^2)\). Since the limiting normal distribution has no atoms, for each finite \(x\),</p>
-        <div class="durrett-question">
-          \[
-          p_3(x)=\lim_n\mathbb P(Y_n\geq x)
-          =1-\Phi(x/\sigma)&gt;0.
-          \]
-        </div>
-        <p class="durrett-question">Here \(\Phi\) is the standard normal distribution function. The intermediate infinitely-often event bridges the CLT's information about marginal distributions and the desired information about sample paths. The comparison yields \(p_1(x)&gt;0\). The remaining task is to justify the tail measurability needed for Kolmogorov's zero-one law and obtain the almost-sure conclusion for all thresholds. Importantly, although the increments \(X_n\) are independent, the partial sums \(S_n\) and the events \(D_n\) are not generally independent; one cannot simply invoke the second Borel–Cantelli lemma on them.</p>
-
-        <p class="durrett-question"><strong>Connection to almost-sure convergence.</strong> My original November 4 note used the errors \(W_n=\lvert Y_n-Y\rvert\) and a threshold \(\varepsilon&gt;0\). If \(Z=\limsup_n W_n\), then</p>
-        <div class="durrett-question">
-          \[
-          \{Z&gt;\varepsilon\}
-          \subseteq\{W_n&gt;\varepsilon\text{ i.o.}\}
-          \subseteq\{Z\geq\varepsilon\}.
-          \]
-        </div>
-        <p class="durrett-question">The middle event is the object relevant to Borel–Cantelli. The extended real-valued random variable \(Z\) describes the limiting upper error; \(Y_n\to Y\) a.s. if and only if \(\mathbb P(Z=0)=1\). See also <a href="{{ '/durrett-waffling/what-does-infinitely-often-mean/' | relative_url }}">What Does an Event Occurring Infinitely Often Actually Mean?</a> for the underlying set-theoretic intuition.</p>
-
-        <p class="durrett-question"><strong>To revisit:</strong> Prove the two event inclusions from their quantifier definitions and the probability inequality in Exercise 2.3.1. Then finish Exercise 3.4.2(a), checking the hypotheses of the zero-one law carefully. Keep the distinction between the two sandwiches explicit.</p>
       </li>
       <li class="durrett-item">
         <h3>\(EX&lt;\infty \iff E|X|&lt;\infty\)</h3>
