@@ -73,10 +73,15 @@ author_profile: true
     {% assign durrett_posts = site.tags["durrett-waffling"] | sort: "date" | reverse %}
     <ul class="durrett-list">
       <li class="durrett-item">
+        <h3><a href="{{ '/durrett-waffling/almost-everywhere-convergence-two-proofs/' | relative_url }}">Converges a.e. — Two Proofs of the Infinitely Often Characterisation</a></h3>
+        <time datetime="2026-11-27">November 27, 2026</time>
+      </li>
+      <li class="durrett-item">
         <h3><a href="{{ '/durrett-waffling/what-does-infinitely-often-mean/' | relative_url }}">What Does an Event Occurring Infinitely Often Actually Mean?</a></h3>
         <time datetime="2026-11-27">November 27, 2026</time>
       </li>
       {% for post in durrett_posts %}
+        {% if post.url == '/durrett-waffling/almost-everywhere-convergence-two-proofs/' %}{% continue %}{% endif %}
         {% if post.url == '/durrett-waffling/what-does-infinitely-often-mean/' %}{% continue %}{% endif %}
         <li class="durrett-item">
           <h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
