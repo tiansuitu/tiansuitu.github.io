@@ -418,6 +418,145 @@ $$
 
 This countability issue and the distinction between the two limsups are the main things I want to remember from these two proofs.
 
+## A quicker proof following Xiao Fang's lecture notes
+
+Ok now, an even quicker/elegant proof is to build on top of the above chain of subsets. This is essentially the route in the STAT5005 lecture notes (Chapter 2, Section 2.2, pp. 8–9), with the implicit steps written out in more detail.
+
+Again write $Z:=\limsup_n X_n$ and $A_\epsilon:=\limsup_n\{X_n>\epsilon\}$. Recall that $X_n\geq0$, so $Z\geq0$ (possibly infinite).
+
+For all $\epsilon>0$ and all $0<\epsilon'<\epsilon$,
+
+$
+\begin{aligned}
+\{Z>\epsilon\}
+&\subseteq\limsup_n\{X_n>\epsilon\}\\
+&\subseteq\{Z\geq\epsilon\}\\
+&\subseteq\{Z>\epsilon'\}.
+\end{aligned}
+$
+
+Say $\epsilon'=\epsilon/2$. Then, by monotonicity of probability,
+
+$
+P(Z>\epsilon)
+\leq P(A_\epsilon)
+\leq P(Z>\epsilon/2).
+$
+
+Thus, the very smart move in Xiao Fang's lecture notes is to switch from the set-theoretic limsup to the numerical limsup. More precisely,
+
+$
+\begin{aligned}
+&\left[\forall\epsilon>0,\quad
+P(X_n>\epsilon\text{ i.o.})=0\right]\\
+&\qquad\iff
+\left[\forall\epsilon'>0,\quad
+P(Z>\epsilon')=0\right]\\
+&\qquad\iff
+\left[\forall\epsilon'>0,\quad
+P(Z\leq\epsilon')=1\right].
+\end{aligned}
+$
+
+So note above that $\epsilon$ and $\epsilon'$ are separately quantified on the LHS and RHS of the iff, not like one quantifier $\epsilon$ holds true for the entire iff. They need not be the same threshold (but neither are they required to be different).
+
+In detail, for the forward direction, assume $P(A_\epsilon)=0$ for every $\epsilon>0$. Fix any $\epsilon'>0$. By the first inclusion, with $\epsilon=\epsilon'$,
+
+$
+0\leq P(Z>\epsilon')
+\leq P(A_{\epsilon'})=0.
+$
+
+For the reverse direction, assume $P(Z>\epsilon')=0$ for every $\epsilon'>0$. Fix any $\epsilon>0$ and choose $\epsilon'=\epsilon/2$. By the last two inclusions,
+
+$
+0\leq P(A_\epsilon)
+\leq P(Z>\epsilon/2)=0.
+$
+
+This is why the notes say "may not be the same epsilon". It is important that we have the universal quantifier on both sides. In general, we cannot claim a fixed-threshold equivalence between the two probabilities being zero, nor replace the universal quantifier on the numerical limsup side by an existential one.
+
+Here for convenience later we use
+
+$
+\begin{aligned}
+&\left[\forall\epsilon>0,\quad
+P(X_n>\epsilon\text{ i.o.})=0\right]\\
+&\qquad\iff
+\left[\forall k\in\mathbb N,\quad
+P(Z\leq1/k)=1\right].
+\end{aligned}
+$
+
+Why can we restrict the numerical limsup condition to $1/k$? One direction is immediate: if $P(Z\leq\epsilon')=1$ for every $\epsilon'>0$, just choose $\epsilon'=1/k$ for each $k$.
+
+For the other direction, suppose $P(Z\leq1/k)=1$ for every $k\in\mathbb N$. Fix an arbitrary $\epsilon'>0$ and choose $k$ sufficiently large that $1/k<\epsilon'$ by the Archimedean property. Then
+
+$
+\{Z\leq1/k\}\subseteq\{Z\leq\epsilon'\},
+$
+
+and hence
+
+$
+1=P(Z\leq1/k)\leq P(Z\leq\epsilon')\leq1.
+$
+
+Thus $P(Z\leq\epsilon')=1$ for every $\epsilon'>0$.
+
+Then finally, the nice part of the lecture notes proof: use continuity from above rather than working with the uncountable collection of thresholds.
+
+Let $F_k:=\{Z\leq1/k\}$. Clearly $F_{k+1}\subseteq F_k$, and
+
+$
+\begin{aligned}
+\bigcap_{k=1}^{\infty}F_k
+&=\{\omega:\forall k\in\mathbb N,\
+Z(\omega)\leq1/k\}\\
+&=\{\omega:Z(\omega)\leq
+\inf_{k\in\mathbb N}1/k\}\\
+&=\{Z\leq0\}=\{Z=0\}.
+\end{aligned}
+$
+
+The last equality uses $Z\geq0$. So $F_k\downarrow\{Z=0\}$, and since $P(F_1)\leq1$ is finite, continuity from above applies:
+
+$
+\begin{aligned}
+P(\limsup_n X_n=0)
+&=P(Z=0)\\
+&=P\left(\bigcap_{k=1}^{\infty}
+\{Z\leq1/k\}\right)\\
+&=\lim_{k\to\infty}P(Z\leq1/k)\\
+&=1.
+\end{aligned}
+$
+
+Conversely, if $P(Z=0)=1$, then for every $j\in\mathbb N$,
+
+$
+1\geq P(Z\leq1/j)\geq P(Z=0)=1,
+$
+
+so $P(Z\leq1/j)=1$ for every $j$. (In fact the same inequality works for every positive real threshold.)
+
+Putting everything together,
+
+$
+\begin{aligned}
+X_n\to0\text{ a.e.}
+&\iff P(Z=0)=1\\
+&\iff \forall k\in\mathbb N,\
+P(Z\leq1/k)=1\\
+&\iff \forall\epsilon>0,\
+P(X_n>\epsilon\text{ i.o.})=0.
+\end{aligned}
+$
+
+Recall that the first iff is precisely because $X_n$ is nonnegative, so pointwise $0\leq\liminf_n X_n\leq\limsup_n X_n$.
+
+And that is the whole proof. What I find elegant about this route is that once we have the chain of subsets, we can work entirely with the numerical limsup $Z$ as a single measurable function. Then taking epsilon down to zero is just the familiar continuity from above property, made rigorous by choosing the countable sequence $1/k$.
+
 See also [What Does an Event Occurring Infinitely Often Actually Mean?](/durrett-waffling/what-does-infinitely-often-mean/) and [Three ways to place limsup: random variables, events and probabilities](/durrett-waffling/#three-limsup-comparisons).
 
 *References: STAT5010 (elementary set operations approach, as recalled in my notes); STAT5005, Xiao Fang, Chapter 2, Section 2.2, pp. 8–9; Durrett, Probability: Theory and Examples, 5th ed., Section 2.3.*
