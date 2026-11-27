@@ -557,6 +557,6 @@ Recall that the first iff is precisely because $X_n$ is nonnegative, so pointwis
 
 And that is the whole proof. What I find elegant about this route is that once we have the chain of subsets, we can work entirely with the numerical limsup $Z$ as a single measurable function. Then taking epsilon down to zero is just the familiar continuity from above property, made rigorous by choosing the countable sequence $1/k$.
 
-See also [What Does an Event Occurring Infinitely Often Actually Mean?](/durrett-waffling/what-does-infinitely-often-mean/) and [Three ways to place limsup: random variables, events and probabilities](/durrett-waffling/#three-limsup-comparisons).
+See also [What Does an Event Occurring Infinitely Often Actually Mean?](/durrett-waffling/what-does-infinitely-often-mean/) and [Three ways to place limsup: random variables, events and probabilities](/durrett-waffling/three-limsup-comparisons/).
 
 *References: STAT5010 (elementary set operations approach, as recalled in my notes); STAT5005, Xiao Fang, Chapter 2, Section 2.2, pp. 8–9; Durrett, Probability: Theory and Examples, 5th ed., Section 2.3.*
